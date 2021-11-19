@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import {cryptoRouter} from "./api/Crypto";
+import {cryptoRouter} from "./api/Crypto/Crypto";
 const app = express();
 const port = 8079;
 
@@ -31,7 +31,7 @@ app.put('/users/profile', (req, res) => {
 
 
 //CRYPTOS MANAGEMENT
-app.use('/test', cryptoRouter)
+app.use('', cryptoRouter)
 
 //PRESS MANAGEMENT
 app.get('/articles',(req, res) => {

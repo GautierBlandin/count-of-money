@@ -1,5 +1,6 @@
 import axios, {AxiosInstance} from 'axios';
 import {CryptoController} from "../../controller/CryptoController";
+import {GeckoCoinResponse} from "./GeckoInterface";
 
 
 /**
@@ -67,7 +68,7 @@ export class CryptoFetcher{
     }
   }
 
-  async getCoinInformations({geckoID}: {geckoID: string}){
+  async getCoinInformations({geckoID}: {geckoID: string}): Promise<GeckoCoinResponse>{
     const res = await this.geckoAxiosInstance.get(`/coins/${geckoID}`, {
       params: {
         localization: false,
@@ -75,6 +76,6 @@ export class CryptoFetcher{
         sparkline: true
       }
     })
-    return res;
+    return res.data as GeckoCoinResponse;
   }
 }
