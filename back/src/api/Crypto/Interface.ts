@@ -6,3 +6,7 @@ export interface GetCryptoResponse{
   openingPrice: number;
   imageURL: string;
 }
+
+export interface GetCryptosResponse{
+  cryptos: GetCryptosResponse[]
+}

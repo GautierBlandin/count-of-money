@@ -3,10 +3,20 @@ import {CryptoController} from "../../controller/CryptoController";
 import {CryptoCurrency} from "../../entity/CryptoCurrency";
 import {CryptoFetcher} from "../../CryptoExternalAPIs/CryptoDataFetcher/fetcher";
 import {GetCryptoResponse} from "./Interface";
+import {GeckoCoinResponse} from "../../CryptoExternalAPIs/CryptoDataFetcher/GeckoInterface";
+import {geckoResponseToCryptoReponse} from "./GeckoAdapter";
 
 export const cryptoRouter = express.Router();
 
-cryptoRouter.get('/coin/:symbol', async (req, res) => {
+/**
+ * Route used to get a information about a specific cryptocurrency
+ * @function
+ * @param path - Express path
+ * @param handler - HTTP request handler
+ */
+cryptoRouter.get('/cryptos/:symbol', async (req, res) => {
+
+  // Fetch the crypto entity and its informations from the database, fail with 404 if the symbol is not found.
   const controller = await CryptoController.getCryptoController()
   let crypto = await controller.getCrypto({symbol: req.params.symbol});
   if ( !crypto ){
@@ -14,6 +24,8 @@ cryptoRouter.get('/coin/:symbol', async (req, res) => {
     res.send('Coin not found')
     return
   }
+
+  // Using the entity's geckoID, make a call to the geckoAPI to get full informations about the cryptocurrency.
   let geckoRes = await CryptoFetcher.getCryptoFetcher().getCoinInformations({geckoID: crypto.geckoID}).catch((err) => {
     res.status(500);
     res.statusMessage = "Error while fetching from the CoinGeckoAPI"
@@ -22,20 +34,43 @@ cryptoRouter.get('/coin/:symbol', async (req, res) => {
 
   if (!geckoRes) return;
 
-  const responseBody: GetCryptoResponse = {
-    currentPrice: geckoRes.market_data.current_price.eur,
-    highestDailyPrice: geckoRes.market_data.high_24h.eur,
-    imageURL: geckoRes.image.large,
-    lowestDailyPrice: geckoRes.market_data.low_24h.eur,
-    name: geckoRes.name,
-    openingPrice: geckoRes.market_data.sparkline_7d.price[167-12],
-  }
+  // Construct the response from the gecko API's informations
+  const responseBody: GetCryptoResponse = geckoResponseToCryptoReponse(geckoRes);
 
+  // Send the response
   res.json(responseBody)
 })
 
-// what i am trying to do right now is the get working routes on my API.
-// what does this translate into ?
-// the process is : receive get request with crypto uuid. fetch crypto from the database with the given uuid.
-// request coin gecko with the coin gecko id. translate the coin gecko response into a getcryptoresponse
-// send the getcryptoresponse
+cryptoRouter.get('/cryptos', async (req, res) => {
+
+  // Get the crypto currencies ids and send a bad request error if they can't be parsed as an array of string
+  let cmids: string[];
+  if ( req.query.cmids as string[] ){
+    cmids = req.query.cmids as string[];
+  } else {
+    res.status(400)
+    res.statusMessage = "Incorrect format of cmids"
+    res.send('Incorrect format of cmids')
+    return
+  }
+
+  // Get the crypto entities from the database
+  const controller = await CryptoController.getCryptoController();
+  const cryptos = await Promise.all(cmids.map((id) => controller.getCrypto({symbol: id})));
+
+  // Get the crypto informations from the Gecko Coin API
+  const cryptosGeckoInformations = await Promise.all( cryptos.filter((crypto) => {
+    return crypto !== undefined
+  }).map((crypto) => {
+    return CryptoFetcher.getCryptoFetcher().getCoinInformations(crypto!)
+  }));
+
+  // Transform the gecko coin API informations into our API's response informations
+  const cryptosResponsesInformations = cryptosGeckoInformations.map(geckoResponseToCryptoReponse);
+
+  // Send the request back with status 200
+  res.status(200);
+  res.json({
+    cryptos: cryptosResponsesInformations
+  })
+})
