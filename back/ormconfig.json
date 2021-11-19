@@ -1,0 +1,25 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 8000,
+  "username": "postgres",
+  "password": "postgres",
+  "database": "postgres",
+  "synchronize": false,
+  "migrationsRun": false,
+  "logging": false,
+  "entities": [
+    "src/entity/**/*.{ts,js}"
+  ],
+  "migrations": [
+    "src/migration/**/*.{ts,js}"
+  ],
+  "subscribers": [
+    "src/subscriber/**/*.{ts,js}"
+  ],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/migration",
+    "subscribersDir": "src/subscriber"
+  }
+}
