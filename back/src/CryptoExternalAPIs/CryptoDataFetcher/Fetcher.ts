@@ -1,13 +1,20 @@
 import axios, {AxiosInstance} from 'axios';
 import {CryptoController} from "../../controller/CryptoController";
-import {GeckoCoinResponse} from "./GeckoInterface";
+import {GeckoCoinResponse} from "../GeckoCoin/GeckoInterface";
+import {
+  CryptoExternalFetcher,
+  CryptoData,
+  CryptoDataRequest,
+  HistoricData,
+  HistoricDataRequest
+} from "../cryptoExternalFetcher.interface";
 
 
 /**
  * @class CryptoFetcher - This class is used to fetch data from the external CoinGecko and AlphaVantage APIs.
  * This class implements the Singleton pattern, to get an instance, use the static getCryptoFetcher Method.
  */
-export class CryptoFetcher{
+export class CryptoFetcher implements CryptoExternalFetcher{
   private static cryptoFetcher: CryptoFetcher = new CryptoFetcher()
 
   /**
@@ -35,7 +42,8 @@ export class CryptoFetcher{
    * documentation, see https://www.alphavantage.co/documentation/ , specifically the cryptocurrency section.
    */
   private vantageAxiosInstance: AxiosInstance = axios.create({
-    baseURL: 'https://alphavantage.co'
+    baseURL: 'https://alphavantage.co/query',
+    params: {apikey: 'B83DCMU1MIFATDG0'}
   })
 
   /**
@@ -68,6 +76,14 @@ export class CryptoFetcher{
     }
   }
 
+  async getCryptoData({id}: CryptoDataRequest): Promise<CryptoData>{
+    
+  }
+
+  async getHistoricData({symbol, period, historyLength}: HistoricDataRequest) : Promise<HistoricData>{
+
+  }
+
   async getCoinInformations({geckoID}: {geckoID: string}): Promise<GeckoCoinResponse>{
     const res = await this.geckoAxiosInstance.get(`/coins/${geckoID}`, {
       params: {
@@ -77,5 +93,35 @@ export class CryptoFetcher{
       }
     })
     return res.data as GeckoCoinResponse;
+  }
+
+  async getMinuteHistory({symbol}: {symbol: string}){
+    const res = await this.vantageAxiosInstance.get('', {params: {
+        function: 'CRYPTO_INTRADAY',
+        symbol: symbol.toUpperCase(),
+        market: 'EUR',
+        interval: '1min',
+        outputsize: 'full',
+      }})
+    return res;
+  }
+
+  async getHourlyHistory({symbol}: {symbol: string}){
+    const res = await this.vantageAxiosInstance.get('', {params: {
+        function: 'CRYPTO_INTRADAY',
+        symbol: symbol.toUpperCase(),
+        market: 'EUR',
+        interval: '60min'
+      }})
+    return res;
+  }
+
+  async getDailyHistory({symbol}: {symbol: string}){
+    const res = await this.vantageAxiosInstance.get('', {params: {
+        function: 'DIGITAL_CURRENCY_DAILY',
+        symbol: symbol.toUpperCase(),
+        market: 'EUR',
+      }})
+    return res;
   }
 }

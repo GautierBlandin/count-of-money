@@ -1,5 +1,5 @@
-import {GeckoCoinResponse} from "../../CryptoExternalAPIs/CryptoDataFetcher/GeckoInterface";
-import {GetCryptoResponse} from "./Interface";
+import {GeckoCoinResponse} from "./GeckoInterface";
+import {GetCryptoResponse} from "../../api/Crypto/CryptoInterface";
 
 export function geckoResponseToCryptoReponse(geckoRes: GeckoCoinResponse):GetCryptoResponse{
   return {

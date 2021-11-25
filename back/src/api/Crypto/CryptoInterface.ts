@@ -10,3 +10,7 @@ export interface GetCryptoResponse{
 export interface GetCryptosResponse{
   cryptos: GetCryptosResponse[]
 }
+
+export interface PostCryptoRequest {
+  geckoID: string;
+}
