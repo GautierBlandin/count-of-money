@@ -1,0 +1,13 @@
+.CLogin, .BSubmit, .CRegisterLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.BSubmit {
+  padding-top: 4%;
+}
+
+.CRegisterLink{
+  padding-top: 4%;
+}
