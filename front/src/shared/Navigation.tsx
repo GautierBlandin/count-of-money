@@ -38,11 +38,6 @@ const Navigation = () => {
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="Market">
-                            News
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
                         <NavLink href="Settings">
                             Settings
                         </NavLink>

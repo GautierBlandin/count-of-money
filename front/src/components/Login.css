@@ -1,13 +1,23 @@
-.CLogin, .BSubmit, .CRegisterLink {
+.CLogin, .CRegisterLink {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-.BSubmit {
+.CRegisterLink{
   padding-top: 4%;
 }
 
-.CRegisterLink{
+.flex-container {
+  display: flex;
+  margin-left: 12%;
+}
+
+.float-child{
   padding-top: 4%;
+  flex: 1;
+}
+
+.g-signin2{
+  float: right;
+  margin-left: 20px;
 }

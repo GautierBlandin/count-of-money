@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Button, Form, FormGroup, Label, Input, InputGroup, InputGroupText
 } from 'reactstrap';
 
 import './Register.css';
 
-class Register extends Component {
+export default function Register() {
+  // Declare a new state variable, which we'll call "count"
+  // const [count, setCount] = useState(0);
 
-  render () {
     return (
       <div className="CRegister">
         <h1>Register</h1>
@@ -61,12 +64,9 @@ class Register extends Component {
             </Button>
           </div>
           <div className="CLoginLink">
-            <p>Already have an account? <a href="Login">Sign in</a>.</p>
+            <p>You already have an account or wanna login with Google? <a href="Login">Sign in</a>.</p>
           </div>
-        </Form>
+        </Form>    
       </div>
     );
-  }
 }
-
-export default Register;

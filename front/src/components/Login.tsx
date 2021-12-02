@@ -1,28 +1,45 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Button, Form, FormGroup, Label, Input, InputGroup, InputGroupText
 } from 'reactstrap';
 
 import './Login.css';
 
-class Login extends Component {
+export default function Login() {
+  // Declare a new state variable, which we'll call "count"
+  // const [count, setCount] = useState(0);
 
-  render () {
+  const [token, setToken] = useState();
+  
+  // if(!token) {
+  //  return <Login setToken={setToken} />
+  // }
+  
+  const [name, setName] = useState("");
+
+  const handleSubmit = (evt: { preventDefault: () => void; }) => {
+    evt.preventDefault();
+    alert(`Feedback: ${name}`)
+  }
+
     return (
       <div className="CLogin">
         <h1>Login</h1>
         <p>Please fill in this form to login to your account.</p>
-        <Form className="FLogin">
+        <Form className="FLogin" onSubmit={handleSubmit}>
           <FormGroup>
             <InputGroup>
                 <InputGroupText>
                   @
                 </InputGroupText>
                 <Input
-                          id="FEmail"
-                          name="email"
-                          placeholder="Enter email"
-                          type="email"
+                  id="FEmail"
+                  name="email"
+                  placeholder="Enter email"
+                  type="email"
+                  onChange={e => setName(e.target.value)}
                 />
               </InputGroup>
           </FormGroup>
@@ -32,20 +49,23 @@ class Login extends Component {
               •••
               </InputGroupText>
               <Input
-                        id="FPassword"
-                        name="password"
-                        placeholder="Enter password"
-                        type="password"
+                id="FPassword"
+                name="password"
+                placeholder="Enter password"
+                type="password"
               />
             </InputGroup>
           </FormGroup>
-          <div className="BSubmit">
-            <Button
-              color="primary"
-              type="submit"
-            >
-              Register
-            </Button>
+          <div className="flex-container">
+            <div className="flex-child">
+              <Button
+                color="primary"
+                type="submit"
+              >
+                Login
+              </Button>
+              <div className="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
           </div>
           <div className="CRegisterLink">
             <p>You don't have an account? <a href="Register">Sign up</a>.</p>
@@ -54,6 +74,3 @@ class Login extends Component {
       </div>
     );
   }
-}
-
-export default Login;
