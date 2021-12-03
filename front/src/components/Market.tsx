@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import {Line, Bar, Doughnut, Pie, Scatter} from 'react-chartjs-2';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Table
@@ -17,6 +19,27 @@ export default function Market() {
     <div>
       <h1 className="HMarket">Market</h1>
       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <Table
         hover
         responsive
