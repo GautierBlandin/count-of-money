@@ -13,7 +13,7 @@ export default function Register() {
 
     return (
       <div className="CRegister">
-        <h1>Register</h1>
+        <h1 className="HRegister">Register</h1>
         <p>Please fill in this form to create an account.</p>
         <Form className="FRegister">
           <FormGroup>

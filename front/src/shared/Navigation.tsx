@@ -9,17 +9,18 @@ import {
 } from 'reactstrap';
 
 import './Navigation.css';
+import '../components/Login';
 
 const Navigation = () => {
     return (
         <div className="DNavbar">
-            <Navbar
+            <Navbar className="Navbar"
                 color="light"
                 expand="md"
                 light
             >
                 <NavbarBrand href="/">
-                Count of Money
+                <span className="DNavbarBrand">Count of Money</span>
                 </NavbarBrand>
                 <NavbarToggler onClick={function noRefCheck(){}} />
                 <Collapse navbar>
@@ -71,7 +72,7 @@ const Navigation = () => {
                     </UncontrolledDropdown>
                 </Nav>
                 <NavbarText>
-                    Hi 'email / user' !
+                    Hi <span className="SEmail">'email'</span> !
                 </NavbarText>
                 </Collapse>
             </Navbar>
