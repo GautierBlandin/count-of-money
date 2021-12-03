@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import {Line, Bar, Doughnut, Pie, Scatter} from 'react-chartjs-2';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Table
@@ -18,28 +16,7 @@ export default function Market() {
 
     <div>
       <h1 className="HMarket">Market</h1>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
       <Table
         hover
         responsive
@@ -49,60 +26,96 @@ export default function Market() {
         <thead>
           <tr>
             <th>
-              #
+              Name
             </th>
             <th>
-              First Name
+              Rank position
             </th>
             <th>
-              Last Name
+              Current price
             </th>
             <th>
-              Username
+              24h Change (%)
+            </th>
+            <th>
+              Market cap
+            </th>
+            <th>
+              Circulating supply
+            </th>
+            <th>
+              24h volume
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th scope="row">
+              BTC
+            </th>
+            <td>
               1
-            </th>
-            <td>
-              Mark
             </td>
             <td>
-              Otto
+              $54400
             </td>
             <td>
-              @mdo
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              2
-            </th>
-            <td>
-              Jacob
+              -5%
             </td>
             <td>
-              Thornton
+              $1,584,982,345
             </td>
             <td>
-              @fat
+              $1,579,493,408
+            </td>
+            <td>
+              $102,879,843
             </td>
           </tr>
           <tr>
-            <th scope="row">
-              3
+          <th scope="row">
+              BTC
             </th>
             <td>
-              Larry
+              1
             </td>
             <td>
-              the Bird
+              $54400
             </td>
             <td>
-              @twitter
+              -5%
+            </td>
+            <td>
+              $1,584,982,345
+            </td>
+            <td>
+              $1,579,493,408
+            </td>
+            <td>
+              $102,879,843
+            </td>
+          </tr>
+          <tr>
+          <th scope="row">
+              BTC
+            </th>
+            <td>
+              1
+            </td>
+            <td>
+              $54400
+            </td>
+            <td>
+              -5%
+            </td>
+            <td>
+              $1,584,982,345
+            </td>
+            <td>
+              $1,579,493,408
+            </td>
+            <td>
+              $102,879,843
             </td>
           </tr>
         </tbody>
