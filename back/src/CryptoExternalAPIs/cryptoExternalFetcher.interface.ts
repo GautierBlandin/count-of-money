@@ -7,6 +7,7 @@ export interface CryptoData {
   name: string
   id: string
   symbol: string
+  imageURL: string
   currentPrice: number
   openingPrice: number
   highestDailyPrice: number
@@ -16,10 +17,12 @@ export interface CryptoData {
 export interface HistoricData {
   period: Period
   historyLength: number
+  timezone: string
   history: HistoricPeriod[]
 }
 
 export interface HistoricPeriod {
+  openingDate: string
   opening: number
   highest: number
   lowest: number
@@ -38,7 +41,7 @@ export enum Period {
 }
 
 export interface HistoricDataRequest {
-  id: string
+  id?: string
   symbol: string
   period: Period
   historyLength: number
