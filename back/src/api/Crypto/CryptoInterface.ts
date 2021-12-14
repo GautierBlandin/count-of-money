@@ -6,3 +6,11 @@ export interface GetCryptoResponse{
   openingPrice: number;
   imageURL: string;
 }
+
+export interface GetCryptosResponse{
+  cryptos: GetCryptosResponse[]
+}
+
+export interface PostCryptoRequest {
+  geckoID: string;
+}
