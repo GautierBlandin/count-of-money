@@ -1,125 +1,75 @@
 import React, { Component } from 'react';
+import * as ReactDOM from "react-dom"
+import { Pie } from 'react-chartjs-2';
+import { ChartOptions } from 'chart.js'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-  Table
-} from 'reactstrap';
 
 import './Watchlist.css'
 
-class Market extends Component {
+export default function Market() {
 
-  render () {
-    return (
-        <div>
-            <h1 className="HWatchlist">Market</h1>
+  return (
+    
+      <div>
+        
+          <h1 className="HWatchlist">Market</h1>
 
-            <Table
-              hover
-              responsive
-              size=""
-              striped
-            >
-              <thead>
-                <tr>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Rank position
-                  </th>
-                  <th>
-                    Current price
-                  </th>
-                  <th>
-                    24h Change (%)
-                  </th>
-                  <th>
-                    Market cap
-                  </th>
-                  <th>
-                    Circulating supply
-                  </th>
-                  <th>
-                    24h volume
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    BTC
-                  </th>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    $54400
-                  </td>
-                  <td>
-                    -5%
-                  </td>
-                  <td>
-                    $1,584,982,345
-                  </td>
-                  <td>
-                    $1,579,493,408
-                  </td>
-                  <td>
-                    $102,879,843
-                  </td>
-                </tr>
-                <tr>
-                <th scope="row">
-                    BTC
-                  </th>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    $54400
-                  </td>
-                  <td>
-                    -5%
-                  </td>
-                  <td>
-                    $1,584,982,345
-                  </td>
-                  <td>
-                    $1,579,493,408
-                  </td>
-                  <td>
-                    $102,879,843
-                  </td>
-                </tr>
-                <tr>
-                <th scope="row">
-                    BTC
-                  </th>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    $54400
-                  </td>
-                  <td>
-                    -5%
-                  </td>
-                  <td>
-                    $1,584,982,345
-                  </td>
-                  <td>
-                    $1,579,493,408
-                  </td>
-                  <td>
-                    $102,879,843
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-        </div>
-    );
-  }
+          <div className="container">
+
+            <div className="table-responsive">
+
+              <table className="table custom-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Crypto</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">24h Price Change</th>
+                    <th scope="col">Market cap</th>
+                    <th scope="col">24h Volume</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Cell 1</td>
+                    <td><span className="rank">Cell 2</span></td>
+                    <td><span className="dollar">Cell 3</span></td>
+                    <td><span className="percent">Cell 4</span></td>
+                    <td><span className="dollar">Cell 5</span></td>
+                    <td><span className="dollar">Cell 6</span></td>
+                  </tr>
+                  <tr>
+                    <td>Cell 1</td>
+                    <td><span className="rank">Cell 2</span></td>
+                    <td><span className="dollar">Cell 3</span></td>
+                    <td><span className="percent">Cell 4</span></td>
+                    <td><span className="dollar">Cell 5</span></td>
+                    <td><span className="dollar">Cell 6</span></td>
+                  </tr>
+                  <tr>
+                    <td>Cell 1</td>
+                    <td><span className="rank">Cell 2</span></td>
+                    <td><span className="dollar">Cell 3</span></td>
+                    <td><span className="percent">Cell 4</span></td>
+                    <td><span className="dollar">Cell 5</span></td>
+                    <td><span className="dollar">Cell 6</span></td>
+                  </tr>
+                  <tr>  
+                    <td>Cell 1</td>
+                    <td><span className="rank">Cell 2</span></td>
+                    <td><span className="dollar">Cell 3</span></td>
+                    <td><span className="percent">Cell 4</span></td>
+                    <td><span className="dollar">Cell 5</span></td>
+                    <td><span className="dollar">Cell 6</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+      </div>
+    
+  );
 }
-
-export default Market;

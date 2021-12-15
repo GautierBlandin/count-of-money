@@ -8,28 +8,14 @@
   position: relative;
 }
 
-.AsideNews {
-  /* debug */
-  /* background-color: red; */
-  position: absolute;
-  width: 25%;
-  height: 94vh;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border-left: 1px solid rgb(82, 143, 204, 0.85);
-}
-
-.Container {
-  position: relative;
-}
-
 .Center {
   /* transform: translate(-50%, -50%); */
 
   position: absolute;
-  top: 71%;
+  top: 77%;
   width: 100%;
-  padding-top: 8%;
-  padding-bottom: 8%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   background-color: rgba(255, 255, 255, 0.975);
   /* box-shadow: rgba(58, 61, 65, 0.7) 0px 8px 24px; */
 
@@ -37,6 +23,35 @@
   text-align: center;
   font-size: 18px;
 }
+
+.HomeBanner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  background-color: none;
+  color: rgb(0, 0, 0, 1);
+  transition: 0.8s;
+}
+
+a:hover{
+  color: rgba(204, 157, 82, 0.75);
+  transition: 0.3s;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+
+
+
+
 
 .HomeBackground{
   width: 75%;
@@ -48,6 +63,27 @@
 .HomeBackground:hover{
   opacity: 0.8;
 }
+
+
+
+
+
+.Container {
+  position: relative;
+}
+
+.AsideNews {
+  /* debug */
+  /* background-color: red; */
+  position: absolute;
+  width: 25%;
+  height: 94vh;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-left: 1px solid rgb(82, 143, 204, 0.85);
+}
+
+
+
 
 .CFeed{
   margin-left: 10%;
@@ -69,6 +105,7 @@
   margin-top: 5%;
   padding-left: 5%;
 }
+
 
 
 
@@ -105,4 +142,15 @@
 .fa-linkedin {
   color: white;
   padding-right: 2vw;
+}
+
+.custom-paragraph{
+  font-size: 17px;
+}
+
+.lineBreak{
+  display: block;
+  width: 150px;
+  word-wrap: break-word;
+  font-size: 15px;
 }

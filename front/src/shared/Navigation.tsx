@@ -39,8 +39,8 @@ const Navigation = () => {
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="Settings">
-                            Settings
+                        <NavLink href="ChartsPanel">
+                            Charts Panel
                         </NavLink>
                     </NavItem>
                     <UncontrolledDropdown
