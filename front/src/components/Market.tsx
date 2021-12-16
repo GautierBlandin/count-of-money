@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import * as ReactDOM from "react-dom"
-import { Pie } from 'react-chartjs-2';
-import { ChartOptions } from 'chart.js'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './Watchlist.css'
+import './Market.css'
 
 export default function Market() {
 
   return (
     
-      <div>
+      <div className="background">
         
-          <h1 className="HWatchlist">Market</h1>
+          <h1 className="HMarket">Market</h1>
 
           <div className="container">
 

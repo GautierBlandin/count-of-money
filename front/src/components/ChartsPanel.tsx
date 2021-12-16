@@ -5,7 +5,7 @@ import './ChartsPanel.css'
 export default function ChartsPanel() {
 
     return (
-      <div className="CChartsPanel">
+      <div className="background">
         <h1 className="HChartsPanel">Charts Panel</h1>
       </div>
     );

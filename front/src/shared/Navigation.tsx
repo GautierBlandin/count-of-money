@@ -66,7 +66,7 @@ const Navigation = () => {
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                Info
+                                Settings
                                 </DropdownItem>
                             </DropdownMenu>
                     </UncontrolledDropdown>

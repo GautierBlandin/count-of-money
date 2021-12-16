@@ -36,7 +36,7 @@ export default function Watchlist() {
   
   return (
 
-    <div>
+    <div className="background">
 
       <h1 className="HWatchlist">Watchlist</h1>
 
