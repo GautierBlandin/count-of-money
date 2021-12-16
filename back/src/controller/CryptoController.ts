@@ -1,5 +1,5 @@
 import {CryptoCurrency} from "../entity/CryptoCurrency";
-import {Repository} from "typeorm";
+import {getRepository, Repository} from "typeorm";
 import {
   CreateCryptoCurrencyRequest,
   DeleteCryptoCurrencyRequest, GetCryptoCurrencyRequest,
@@ -26,8 +26,8 @@ export class CryptoController{
    */
   static async getCryptoController(){
     const controller = new CryptoController();
-    const connection = await DbConn.getConn();
-    controller.cr = connection.getRepository(CryptoCurrency)
+    // const connection = await DbConn.getConn();
+    controller.cr = getRepository(CryptoCurrency)
     return controller
   }
 

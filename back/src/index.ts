@@ -28,21 +28,7 @@ app.get('/articles/:id',(req, res) => {
   res.send('placeholder');
 });
 
-createConnection({
-  "type": "postgres",
-  "host": "localhost",
-  "port": 8000,
-  "username": "postgres",
-  "password": "postgres",
-  "database": "postgres",
-  "synchronize": true,
-  "migrationsRun": false,
-  "logging": false,
-  "entities": [
-    CryptoCurrency,
-    User
-  ],
-});
+createConnection();
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

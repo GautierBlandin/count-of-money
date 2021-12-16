@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import {getRepository} from "typeorm";
 import {User} from "../../entity/User";
-import {generateAccessToken} from "../../../libraries/Authentication";
+import {generateAccessToken, encryptPassword, decodeAccessToken} from "../../../libraries/Authentication";
 
 export const AuthRouter = express.Router();
 
@@ -63,6 +63,93 @@ AuthRouter.get('/auth/:provider', async (req, res) => {
     }
 })
 
-AuthRouter.post('/register', (req, res) => {
-    // Get user
+/**
+ * Register a new user. The request must contain a body with {email: string, password: string}
+ */
+AuthRouter.post('/register', async(req, res) => {
+    // Get user's password and email adress
+    const email = req.body.email;
+    const password = req.body.password;
+    const access_token = generateAccessToken(email);
+
+    // Store the new user in the database
+    const userRepository = getRepository(User);
+    const user = await userRepository.save(
+        {
+            email: email,
+            password_hash: encryptPassword(password),
+            press_keywords: [],
+            cryptos: [],
+            access_token: access_token
+    }).catch((err) => {
+        console.log(err);
+        res.status(400);
+        res.send("Db could store the new user");
+        return
+    })
+    if(user){
+        res.json(
+            {
+                email: user.email,
+                access_token: user.access_token
+            }
+        )
+    }
+    // Return the user's email address and a fresh access token
+})
+
+/**
+ * Login an existing user. The request must contain a body with {email: string, password: string}
+ */
+AuthRouter.post('/login', async (req, res) => {
+    // Get user's password and email
+    const email = req.body.email;
+    const password = req.body.password;
+    const access_token = generateAccessToken(email);
+    // Get user with email from db
+    const userRepository = getRepository(User);
+    const user = await userRepository.findOne({email: email}).catch(err =>{
+        console.log(err);
+        res.status(404);
+        res.send("No registered user with these credentials.");
+        return
+    })
+    // Check user's pass word against hash password
+    if(user){
+        // In case of success, update access token and return it
+        if(encryptPassword(password) === user.password_hash){
+            await userRepository.update({email: email}, {access_token: access_token});
+            res.json({
+                email: user.email,
+                access_token: access_token
+            })
+        } else {
+            res.status(404);
+            res.send("No registered user with these credentials.");
+        }
+    }
+})
+
+AuthRouter.post('/logout', async (req, res) => {
+    // Get the user's email from the Authorization header
+    const access_token = req.header('Authorization');
+
+    if(access_token) {
+        const email = decodeAccessToken(access_token);
+
+        // Get the user entity from the database
+        const userRepository = getRepository(User);
+        const user = await userRepository.findOne({email: email});
+        if (user) {
+            if(user.access_token == access_token) {
+                // Reset the user's access token, therefore logging him out.
+                userRepository.update({email: email}, {
+                    access_token: '',
+                })
+            }
+        }
+    }
+
+    res.status(202);
+    res.send("Logged out")
 })
