@@ -11,9 +11,9 @@
 13756||10|c|G
 13756||10|C|G
 13756||10|T|G</Grants>
-      <IntrospectionStateNumber>841</IntrospectionStateNumber>
+      <IntrospectionStateNumber>746</IntrospectionStateNumber>
       <ServerVersion>14.1</ServerVersion>
-      <StartupTime>1639508112</StartupTime>
+      <StartupTime>1639646931</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1404,7 +1404,7 @@ false posixrules
 13391||10|C|G
 13391||-9223372036854775808|U|G
 13391||10|U|G</Grants>
-      <IntrospectionStateNumber>842</IntrospectionStateNumber>
+      <IntrospectionStateNumber>747</IntrospectionStateNumber>
       <ObjectId>13757</ObjectId>
       <Relations>sequence|table|16395|16396|1
 </Relations>
@@ -1413,17 +1413,17 @@ false posixrules
     <role id="3" parent="1" name="pg_database_owner">
       <ObjectId>6171</ObjectId>
     </role>
-    <role id="4" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
+    <role id="4" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
     </role>
-    <role id="5" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
-    </role>
-    <role id="6" parent="1" name="pg_monitor">
+    <role id="5" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
       <RoleGrants>3374
 3375
 3377</RoleGrants>
+    </role>
+    <role id="6" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
     </role>
     <role id="7" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
@@ -1431,20 +1431,20 @@ false posixrules
     <role id="8" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
     </role>
-    <role id="9" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
-    </role>
-    <role id="10" parent="1" name="pg_read_server_files">
+    <role id="9" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
     </role>
-    <role id="11" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
-    </role>
-    <role id="12" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
-    </role>
-    <role id="13" parent="1" name="pg_signal_backend">
+    <role id="10" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
+    </role>
+    <role id="11" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+    </role>
+    <role id="12" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
+    </role>
+    <role id="13" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
     </role>
     <role id="14" parent="1" name="postgres">
       <BypassRls>1</BypassRls>
@@ -4835,7 +4835,7 @@ false posixrules
     <schema id="262" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>842</IntrospectionStateNumber>
+      <IntrospectionStateNumber>747</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4953,188 +4953,360 @@ false posixrules
       <StateNumber>735</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="274" parent="262" name="crypto_currency">
-      <ObjectId>16404</ObjectId>
-      <StateNumber>736</StateNumber>
+    <table id="274" parent="262" name="CryptoCurrency">
+      <ObjectId>16440</ObjectId>
+      <StateNumber>738</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="275" parent="262" name="migrations">
+    <table id="275" parent="262" name="User">
+      <ObjectId>16454</ObjectId>
+      <StateNumber>738</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="276" parent="262" name="crypto_currency">
+      <ObjectId>16409</ObjectId>
+      <StateNumber>737</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="277" parent="262" name="migrations">
       <ObjectId>16396</ObjectId>
       <StateNumber>735</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="276" parent="262" name="typeorm_metadata">
-      <ObjectId>16428</ObjectId>
-      <StateNumber>838</StateNumber>
+    <table id="278" parent="262" name="typeorm_metadata">
+      <ObjectId>16404</ObjectId>
+      <StateNumber>736</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="277" parent="262" name="user">
-      <ObjectId>16412</ObjectId>
-      <StateNumber>839</StateNumber>
+    <table id="279" parent="262" name="user">
+      <ObjectId>16417</ObjectId>
+      <StateNumber>737</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <argument id="278" parent="263">
+    <argument id="280" parent="263">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="279" parent="264">
+    <argument id="281" parent="264">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="280" parent="265">
+    <argument id="282" parent="265">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="281" parent="265" name="namespace">
+    <argument id="283" parent="265" name="namespace">
       <DataType>uuid|0s</DataType>
       <Position>1</Position>
     </argument>
-    <argument id="282" parent="265" name="name">
+    <argument id="284" parent="265" name="name">
       <DataType>text|0s</DataType>
       <Position>2</Position>
     </argument>
-    <argument id="283" parent="266">
+    <argument id="285" parent="266">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="284" parent="267">
+    <argument id="286" parent="267">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="285" parent="267" name="namespace">
+    <argument id="287" parent="267" name="namespace">
       <DataType>uuid|0s</DataType>
       <Position>1</Position>
     </argument>
-    <argument id="286" parent="267" name="name">
+    <argument id="288" parent="267" name="name">
       <DataType>text|0s</DataType>
       <Position>2</Position>
     </argument>
-    <argument id="287" parent="268">
+    <argument id="289" parent="268">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="288" parent="269">
+    <argument id="290" parent="269">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="289" parent="270">
+    <argument id="291" parent="270">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="290" parent="271">
+    <argument id="292" parent="271">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <argument id="291" parent="272">
+    <argument id="293" parent="272">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>uuid|0s</DataType>
     </argument>
-    <column id="292" parent="274" name="uuid">
+    <column id="294" parent="274" name="uuid">
       <DataType>uuid|0s</DataType>
       <DefaultExpression>uuid_generate_v4()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>738</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="293" parent="274" name="name">
+    <column id="295" parent="274" name="name">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>738</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="294" parent="274" name="symbol">
+    <column id="296" parent="274" name="symbol">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>738</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="274" name="imageURL">
+    <column id="297" parent="274" name="imageURL">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>738</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="296" parent="274" name="geckoID">
+    <column id="298" parent="274" name="geckoID">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>738</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="297" parent="274" name="PK_d29491d47525b7c6166cdaa5764">
+    <index id="299" parent="274" name="PK_32eb4be71c89a2edb2cfa424ee3">
       <ClassIds>10065</ClassIds>
       <ColNames>uuid</ColNames>
       <CollationIds>0</CollationIds>
-      <ObjectId>16420</ObjectId>
+      <ObjectId>16446</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>736</StateNumber>
+      <StateNumber>738</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="298" parent="274" name="UQ_5ae70fe2db29bd42ca71b61e0ea">
+    <index id="300" parent="274" name="UQ_980ac870cf0d302ab77756164c2">
       <ClassIds>3126</ClassIds>
       <ColNames>name</ColNames>
       <CollationIds>100</CollationIds>
       <CollationNames>default</CollationNames>
-      <ObjectId>16422</ObjectId>
-      <StateNumber>736</StateNumber>
+      <ObjectId>16448</ObjectId>
+      <StateNumber>738</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="299" parent="274" name="UQ_503b0d1eadf815113abb46a832e">
+    <index id="301" parent="274" name="UQ_0a6a74662003c5473d142207ac7">
       <ClassIds>3126</ClassIds>
       <ColNames>symbol</ColNames>
       <CollationIds>100</CollationIds>
       <CollationNames>default</CollationNames>
-      <ObjectId>16424</ObjectId>
-      <StateNumber>736</StateNumber>
+      <ObjectId>16450</ObjectId>
+      <StateNumber>738</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="300" parent="274" name="UQ_d7b1fc439c4af4293e48b95183d">
+    <index id="302" parent="274" name="UQ_c976acbdd26c97615dd6ce0e136">
       <ClassIds>3126</ClassIds>
       <ColNames>geckoID</ColNames>
       <CollationIds>100</CollationIds>
       <CollationNames>default</CollationNames>
-      <ObjectId>16426</ObjectId>
-      <StateNumber>736</StateNumber>
+      <ObjectId>16452</ObjectId>
+      <StateNumber>738</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="301" parent="274" name="PK_d29491d47525b7c6166cdaa5764">
+    <key id="303" parent="274" name="PK_32eb4be71c89a2edb2cfa424ee3">
       <ColNames>uuid</ColNames>
-      <ObjectId>16421</ObjectId>
+      <ObjectId>16447</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>736</StateNumber>
-      <UnderlyingIndexId>16420</UnderlyingIndexId>
+      <StateNumber>738</StateNumber>
+      <UnderlyingIndexId>16446</UnderlyingIndexId>
     </key>
-    <key id="302" parent="274" name="UQ_5ae70fe2db29bd42ca71b61e0ea">
+    <key id="304" parent="274" name="UQ_980ac870cf0d302ab77756164c2">
       <ColNames>name</ColNames>
-      <ObjectId>16423</ObjectId>
-      <StateNumber>736</StateNumber>
-      <UnderlyingIndexId>16422</UnderlyingIndexId>
+      <ObjectId>16449</ObjectId>
+      <StateNumber>738</StateNumber>
+      <UnderlyingIndexId>16448</UnderlyingIndexId>
     </key>
-    <key id="303" parent="274" name="UQ_503b0d1eadf815113abb46a832e">
+    <key id="305" parent="274" name="UQ_0a6a74662003c5473d142207ac7">
       <ColNames>symbol</ColNames>
-      <ObjectId>16425</ObjectId>
-      <StateNumber>736</StateNumber>
-      <UnderlyingIndexId>16424</UnderlyingIndexId>
+      <ObjectId>16451</ObjectId>
+      <StateNumber>738</StateNumber>
+      <UnderlyingIndexId>16450</UnderlyingIndexId>
     </key>
-    <key id="304" parent="274" name="UQ_d7b1fc439c4af4293e48b95183d">
+    <key id="306" parent="274" name="UQ_c976acbdd26c97615dd6ce0e136">
       <ColNames>geckoID</ColNames>
-      <ObjectId>16427</ObjectId>
-      <StateNumber>736</StateNumber>
-      <UnderlyingIndexId>16426</UnderlyingIndexId>
+      <ObjectId>16453</ObjectId>
+      <StateNumber>738</StateNumber>
+      <UnderlyingIndexId>16452</UnderlyingIndexId>
     </key>
-    <column id="305" parent="275" name="id">
+    <column id="307" parent="275" name="email">
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="308" parent="275" name="password_hash">
+      <DataType>varchar|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="309" parent="275" name="currency">
+      <DataType>varchar|0s</DataType>
+      <DefaultExpression>&apos;EUR&apos;::character varying</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="310" parent="275" name="cryptos">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="311" parent="275" name="press_keywords">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="312" parent="275" name="access_token">
+      <DataType>varchar|0s</DataType>
+      <Position>6</Position>
+      <StateNumber>738</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="313" parent="275" name="PK_4a257d2c9837248d70640b3e36e">
+      <ClassIds>3126</ClassIds>
+      <ColNames>email</ColNames>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ObjectId>16460</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>738</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="314" parent="275" name="PK_4a257d2c9837248d70640b3e36e">
+      <ColNames>email</ColNames>
+      <ObjectId>16461</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>738</StateNumber>
+      <UnderlyingIndexId>16460</UnderlyingIndexId>
+    </key>
+    <column id="315" parent="276" name="uuid">
+      <DataType>uuid|0s</DataType>
+      <DefaultExpression>uuid_generate_v4()</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="316" parent="276" name="name">
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="317" parent="276" name="symbol">
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="318" parent="276" name="imageURL">
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="319" parent="276" name="geckoID">
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="320" parent="276" name="PK_d29491d47525b7c6166cdaa5764">
+      <ClassIds>10065</ClassIds>
+      <ColNames>uuid</ColNames>
+      <CollationIds>0</CollationIds>
+      <ObjectId>16425</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>737</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="321" parent="276" name="UQ_5ae70fe2db29bd42ca71b61e0ea">
+      <ClassIds>3126</ClassIds>
+      <ColNames>name</ColNames>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ObjectId>16427</ObjectId>
+      <StateNumber>737</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="322" parent="276" name="UQ_503b0d1eadf815113abb46a832e">
+      <ClassIds>3126</ClassIds>
+      <ColNames>symbol</ColNames>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ObjectId>16429</ObjectId>
+      <StateNumber>737</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="323" parent="276" name="UQ_d7b1fc439c4af4293e48b95183d">
+      <ClassIds>3126</ClassIds>
+      <ColNames>geckoID</ColNames>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ObjectId>16431</ObjectId>
+      <StateNumber>737</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="324" parent="276" name="PK_d29491d47525b7c6166cdaa5764">
+      <ColNames>uuid</ColNames>
+      <ObjectId>16426</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>737</StateNumber>
+      <UnderlyingIndexId>16425</UnderlyingIndexId>
+    </key>
+    <key id="325" parent="276" name="UQ_5ae70fe2db29bd42ca71b61e0ea">
+      <ColNames>name</ColNames>
+      <ObjectId>16428</ObjectId>
+      <StateNumber>737</StateNumber>
+      <UnderlyingIndexId>16427</UnderlyingIndexId>
+    </key>
+    <key id="326" parent="276" name="UQ_503b0d1eadf815113abb46a832e">
+      <ColNames>symbol</ColNames>
+      <ObjectId>16430</ObjectId>
+      <StateNumber>737</StateNumber>
+      <UnderlyingIndexId>16429</UnderlyingIndexId>
+    </key>
+    <key id="327" parent="276" name="UQ_d7b1fc439c4af4293e48b95183d">
+      <ColNames>geckoID</ColNames>
+      <ObjectId>16432</ObjectId>
+      <StateNumber>737</StateNumber>
+      <UnderlyingIndexId>16431</UnderlyingIndexId>
+    </key>
+    <column id="328" parent="277" name="id">
       <DataType>integer|0s</DataType>
       <DefaultExpression>nextval(&apos;migrations_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5142,21 +5314,21 @@ false posixrules
       <StateNumber>735</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="306" parent="275" name="timestamp">
+    <column id="329" parent="277" name="timestamp">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>735</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="307" parent="275" name="name">
+    <column id="330" parent="277" name="name">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>735</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="308" parent="275" name="PK_8c82d7f526340ab734260ea46be">
+    <index id="331" parent="277" name="PK_8c82d7f526340ab734260ea46be">
       <ClassIds>1978</ClassIds>
       <ColNames>id</ColNames>
       <CollationIds>0</CollationIds>
@@ -5166,109 +5338,108 @@ false posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="309" parent="275" name="PK_8c82d7f526340ab734260ea46be">
+    <key id="332" parent="277" name="PK_8c82d7f526340ab734260ea46be">
       <ColNames>id</ColNames>
       <ObjectId>16403</ObjectId>
       <Primary>1</Primary>
       <StateNumber>735</StateNumber>
       <UnderlyingIndexId>16402</UnderlyingIndexId>
     </key>
-    <column id="310" parent="276" name="type">
+    <column id="333" parent="278" name="type">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>838</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="311" parent="276" name="database">
+    <column id="334" parent="278" name="database">
       <DataType>varchar|0s</DataType>
       <Position>2</Position>
-      <StateNumber>838</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="312" parent="276" name="schema">
+    <column id="335" parent="278" name="schema">
       <DataType>varchar|0s</DataType>
       <Position>3</Position>
-      <StateNumber>838</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="313" parent="276" name="table">
+    <column id="336" parent="278" name="table">
       <DataType>varchar|0s</DataType>
       <Position>4</Position>
-      <StateNumber>838</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="314" parent="276" name="name">
+    <column id="337" parent="278" name="name">
       <DataType>varchar|0s</DataType>
       <Position>5</Position>
-      <StateNumber>838</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="315" parent="276" name="value">
+    <column id="338" parent="278" name="value">
       <DataType>text|0s</DataType>
       <Position>6</Position>
-      <StateNumber>838</StateNumber>
+      <StateNumber>736</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="316" parent="277" name="uuid">
-      <DataType>uuid|0s</DataType>
-      <DefaultExpression>uuid_generate_v4()</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>736</StateNumber>
-      <TypeId>2950</TypeId>
-    </column>
-    <column id="317" parent="277" name="email">
+    <column id="339" parent="279" name="email">
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="318" parent="277" name="password_hash">
+    <column id="340" parent="279" name="password_hash">
       <DataType>varchar|0s</DataType>
       <Position>3</Position>
-      <StateNumber>839</StateNumber>
+      <StateNumber>737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="319" parent="277" name="currency">
+    <column id="341" parent="279" name="currency">
       <DataType>varchar|0s</DataType>
       <DefaultExpression>&apos;EUR&apos;::character varying</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>839</StateNumber>
+      <StateNumber>737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="320" parent="277" name="cryptos">
+    <column id="342" parent="279" name="cryptos">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>839</StateNumber>
+      <StateNumber>737</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="321" parent="277" name="press_keywords">
+    <column id="343" parent="279" name="press_keywords">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>839</StateNumber>
+      <StateNumber>737</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="322" parent="277" name="PK_a95e949168be7b7ece1a2382fed">
-      <ClassIds>10065</ClassIds>
-      <ColNames>uuid</ColNames>
-      <CollationIds>0</CollationIds>
-      <ObjectId>16434</ObjectId>
+    <column id="344" parent="279" name="access_token">
+      <DataType>varchar|0s</DataType>
+      <Position>7</Position>
+      <StateNumber>737</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="345" parent="279" name="PK_e12875dfb3b1d92d7d7c5377e22">
+      <ClassIds>3126</ClassIds>
+      <ColNames>email</ColNames>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ObjectId>16438</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>839</StateNumber>
+      <StateNumber>737</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="323" parent="277" name="PK_a95e949168be7b7ece1a2382fed">
-      <ColNames>uuid</ColNames>
-      <ObjectId>16435</ObjectId>
+    <key id="346" parent="279" name="PK_e12875dfb3b1d92d7d7c5377e22">
+      <ColNames>email</ColNames>
+      <ObjectId>16439</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>839</StateNumber>
-      <UnderlyingIndexId>16434</UnderlyingIndexId>
+      <StateNumber>737</StateNumber>
+      <UnderlyingIndexId>16438</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
