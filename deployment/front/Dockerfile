@@ -1,9 +1,13 @@
-FROM node:16
+FROM node:16 as build-stage
 
 WORKDIR /app/front
 COPY ./front/package*.json ./
+COPY ./front ./
 
 RUN npm install
-COPY ./front .
+RUN npm run build
 
-CMD ["npm", "run", "start"]
+FROM nginx:stable-alpine
+COPY --from=build-stage /app/front/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

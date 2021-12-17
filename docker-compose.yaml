@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
 
-  front:
+  nginx:
     restart: unless-stopped
     build:
       context: .
@@ -32,21 +32,9 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    #volumes:
-    #  - ./deployment/front/nginx_configuration con:/etc/nginx/conf.d
+    volumes:
+      - ./deployment/front/nginx_configuration:/etc/nginx/conf.d
     depends_on:
       - backend
-
-  #splunk:
-  #    image: splunk/splunk:latest
-  #    environment:
-  #      - SPLUNK_START_ARGS=--accept-license
-  #      - SPLUNK_PASSWORD=admin123./
-  #      - SPLUNK_HTTP_ENABLESSL=true
-  #      - SPLUNK_HTTP_ENABLESSL_CERT=/deployment/Cert/cert.pem
-  #      - SPLUNK_HTTP_ENABLESSL_PRIVKEY=/deployment/Cert/key.pem
-  #      - SPLUNK_HTTP_ENABLESSL_PRIVKEY_PASSWORD=abcd1234
-  #    ports:
-  #      - "8000:8000"
 #volumes:
 #  db-data:

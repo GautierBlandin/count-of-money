@@ -12,4 +12,4 @@ RUN npm install \
         && npm install typescript -g
 COPY ./back .
 
-CMD ["npm", "run", "build"]
+CMD ["npm", "run", "dev"]
