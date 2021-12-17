@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Account from './components/Account';
 import Home from './components/Home';
 import Market from './components/Market';
 import ChartsPanel from './components/ChartsPanel';
@@ -19,7 +18,6 @@ const App: React.FC = props => {
         <Navigation />
       </div>
       <Routes>                
-        <Route path='/Account' element={<Account/>} /> 
         <Route path='/Home' element={<Home/>} />
         <Route path='/Market' element={<Market/>} /> 
         <Route path='/ChartsPanel' element={<ChartsPanel/>} />

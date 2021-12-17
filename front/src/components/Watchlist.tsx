@@ -1,42 +1,81 @@
-import React, { useState }from "react";
+import React from "react";
+import{
+  useMemo,
+  useContext,
+  useEffect,
+  useState
+} from "react";
+import {useLocation} from "react-router-dom";
+
+import {
+  Input, Form
+} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './Watchlist.css'
 
 type RowData = {
-  message: string;
+  nameCryptoRow: string;
 }
 
 interface IState {
   rows: RowData[];
 }
 
+// Use async if await axios
+// export default async function Watchlist() {
 export default function Watchlist() {
+
+  // axios
+  const [openingPrice, setOpeningPrice] = useState({})
+  const [currentPrice, setCurrentPrice] = useState({})
+
+  useEffect( () => {
+
+    /*
+    const res = await axios.get('http://localhost:3000/cryptos/btc');
+    setCoinres(res.data)
+    console.log('opening price', res.data.openingPrice)
+    */
+
+    axios.get('http://localhost:3000/cryptos/btc').then((res) => {
+      setOpeningPrice(res.data);
+      console.log('opening price', res.data.openingPrice)
+    })
+
+    axios.get('http://localhost:3000/cryptos/btc').then((res) => {
+      setCurrentPrice(res.data);
+      console.log('current price', res.data.currentPrice)
+    })
+
+  }, [])
 
   // onClick: add cryptocurrency (row) to watchlist (table)
   const [state, setState] = useState<IState>({rows: []});
   
   const addRow = () => {
     setState({
-      rows: [...state.rows, { message: "Test" }]
+      rows: [...state.rows, { nameCryptoRow: crypto }]
     })
-  } 
+  }
 
   const { rows } = state;
 
-  // onChange: cryptocurrency choice
-  const [selectedOption, setSelectedOption] = useState<String>();
+  // onChange: cryptocurrency choice (input)
+  const [crypto, setCrypto] = useState("");
 
-  const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    setSelectedOption(value);
-    alert(`Feedback: ${value}`)
-  };
-  
+  /*
+  // DEBUG
+  const handleSubmit = (evt: { preventDefault: () => void; }) => {
+    evt.preventDefault();
+    console.log({crypto})
+  }
+  */
+
   return (
 
-    <div className="background">
+    <div className="watchlistBackground">
 
       <h1 className="HWatchlist">Watchlist</h1>
 
@@ -46,21 +85,16 @@ export default function Watchlist() {
 
           <div className="custom-container">
             <div className="custom-select">
-              <select onChange={selectChange}>
-                <option selected value="0">BTC</option>
-                <option value="1">ETH</option>
-                <option value="2">SOL</option>
-                <option value="3">AVAX</option>
-                <option value="4">EGLD</option>
-                <option value="5">XVS</option>
-                <option value="6">ATOM</option>
-                <option value="7">LINK</option>
-                <option value="8">FTT</option>
-                <option value="9">BNB</option>
-                <option value="10">LTC</option>
-                <option value="11">LUNA</option>
-                <option value="12">DOT</option>
-              </select>
+            {/* onSubmit={handleSubmit} */}
+              <Form>
+                <Input
+                  id="FText"
+                  crypto="text"
+                  placeholder="Enter crypto: BTC, ETH, ..."
+                  type="text"
+                  onChange={e => setCrypto(e.target.value)}
+                />
+              </Form>
             </div>
 
             <button onClick={addRow} className="custom-button" role="button">Add to watchlist</button>
@@ -79,46 +113,14 @@ export default function Watchlist() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Cell 1</td>
-                <td><span className="rank">Cell 2</span></td>
-                <td><span className="dollar">Cell 3</span></td>
-                <td><span className="percent">Cell 4</span></td>
-                <td><span className="dollar">Cell 5</span></td>
-                <td><span className="dollar">Cell 6</span></td>
-              </tr>
-              <tr>
-                <td>Cell 1</td>
-                <td><span className="rank">Cell 2</span></td>
-                <td><span className="dollar">Cell 3</span></td>
-                <td><span className="percent">Cell 4</span></td>
-                <td><span className="dollar">Cell 5</span></td>
-                <td><span className="dollar">Cell 6</span></td>
-              </tr>
-              <tr>
-                <td>Cell 1</td>
-                <td><span className="rank">Cell 2</span></td>
-                <td><span className="dollar">Cell 3</span></td>
-                <td><span className="percent">Cell 4</span></td>
-                <td><span className="dollar">Cell 5</span></td>
-                <td><span className="dollar">Cell 6</span></td>
-              </tr>
-              <tr>  
-                <td>Cell 1</td>
-                <td><span className="rank">Cell 2</span></td>
-                <td><span className="dollar">Cell 3</span></td>
-                <td><span className="percent">Cell 4</span></td>
-                <td><span className="dollar">Cell 5</span></td>
-                <td><span className="dollar">Cell 6</span></td>
-              </tr>
                 { rows.map(element => (
                   <tr> 
-                    <td>Cell 1</td> 
-                    <td><span className="rank">Cell 2</span></td>
-                    <td><span className="dollar">Cell 3</span></td>
-                    <td><span className="percent">Cell 4</span></td>
-                    <td><span className="dollar">Cell 5</span></td>
-                    <td><span className="dollar">Cell 6</span></td>
+                    <td>{element.nameCryptoRow}</td> {/* const from onChange input */}
+                    <td><span className="rank">1</span></td>
+                    <td><span className="dollar">49759</span></td>
+                    <td><span className="percent">-3</span></td>
+                    <td><span className="dollar">879,039,487</span></td>
+                    <td><span className="dollar">106,846,038</span></td>
                   </tr>
                 ))
               }

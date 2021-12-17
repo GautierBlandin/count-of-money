@@ -1,4 +1,10 @@
 import React from 'react';
+import{
+    useMemo,
+    useContext,
+    useEffect,
+    useState
+  } from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -9,9 +15,10 @@ import {
 } from 'reactstrap';
 
 import './Navigation.css';
-import '../components/Login';
+import Login from '../components/Login'
 
-const Navigation = () => {
+const Navigation = () => {  
+
     return (
         <div className="DNavbar">
             <Navbar className="Navbar"

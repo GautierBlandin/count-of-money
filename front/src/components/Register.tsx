@@ -9,8 +9,15 @@ import './Register.css';
 
 export default function Register() {
 
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (evt: { preventDefault: () => void; }) => {
+    evt.preventDefault();
+    console.log({email})
+  }
+
     return (
-      <div className="background">
+      <div className="registerBackground">
         <div className="CRegister">
           <h1 className="HRegister">Register</h1>
           <p>Please fill in this form to create an account.</p>
@@ -22,9 +29,10 @@ export default function Register() {
                 </InputGroupText>
                 <Input
                           id="FEmail"
-                          name="email"
+                          email="email"
                           placeholder="Enter email"
                           type="email"
+                          onChange={e => setEmail(e.target.value)}
                 />
               </InputGroup>
             </FormGroup>

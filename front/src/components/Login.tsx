@@ -15,15 +15,15 @@ export default function Login() {
   //  return <Login setToken={setToken} />
   // }
 
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (evt: { preventDefault: () => void; }) => {
     evt.preventDefault();
-    alert(`Feedback: ${name}`)
+    console.log({email})
   }
 
   return (
-    <div className="background">
+    <div className="loginBackground">
       <div className="CLogin">
         <h1 className="HLogin">Login</h1>
         <p>Please fill in this form to login to your account.</p>
@@ -35,10 +35,10 @@ export default function Login() {
                 </InputGroupText>
                 <Input
                   id="FEmail"
-                  name="email"
+                  email="email"
                   placeholder="Enter email"
                   type="email"
-                  onChange={e => setName(e.target.value)}
+                  onChange={e => setEmail(e.target.value)}
                 />
               </InputGroup>
           </FormGroup>

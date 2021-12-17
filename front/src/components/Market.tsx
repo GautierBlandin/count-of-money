@@ -8,7 +8,7 @@ export default function Market() {
 
   return (
     
-      <div className="background">
+      <div className="marketBackground">
         
           <h1 className="HMarket">Market</h1>
 
