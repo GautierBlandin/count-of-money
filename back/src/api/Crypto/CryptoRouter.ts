@@ -76,7 +76,7 @@ cryptoRouter.get('/cryptos', async (req, res) => {
  * @param id: The id corresponsding to geckoCoin's coin id
  * @param symbol: The crypto currency's symbol
  */
-cryptoRouter.post('/cryptos', withAuth(), async (req, res) => {
+cryptoRouter.post('/cryptos', withAuth(true), async (req, res) => {
   console.log(req.body)
 
   if(!(req.body as {id: string, symbol: string})){
@@ -113,7 +113,7 @@ cryptoRouter.post('/cryptos', withAuth(), async (req, res) => {
  * @function DELETE crypto
  * @param The crypto's id
  */
-cryptoRouter.delete('/cryptos/:cmid', withAuth(), async (req, res) => {
+cryptoRouter.delete('/cryptos/:cmid', withAuth(true), async (req, res) => {
     const controller = await CryptoController.getCryptoController();
     await controller.deleteCrypto({symbol: req.params.cmid}).catch((err) => {
       console.log(err)
