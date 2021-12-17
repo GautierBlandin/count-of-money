@@ -12,8 +12,6 @@ import {
   Input, Form
 } from 'reactstrap';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './Watchlist.css'
 
 type RowData = {

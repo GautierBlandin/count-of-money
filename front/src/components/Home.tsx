@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import {
     Toast, ToastHeader, ToastBody, Spinner
 } from 'reactstrap';
