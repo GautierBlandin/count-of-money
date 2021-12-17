@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: ./deployment/back/Dockerfile
-    command: [ "./wait-for-it.sh", "postgres:5432", "--", "npm", "run", "typeorm", "migration:run" ]
+    #entrypoint: [ "./wait-for-it.sh", "postgres:5432", "--", "npm", "run", "typeorm", "migration:run"]
     env_file:
       - ./.env.prod
     ports:
@@ -37,16 +37,16 @@ services:
     depends_on:
       - backend
 
-  splunk:
-      image: splunk/splunk:latest
-      environment:
-        - SPLUNK_START_ARGS=--accept-license
-        - SPLUNK_PASSWORD=admin123./
-        - SPLUNK_HTTP_ENABLESSL=true
-        - SPLUNK_HTTP_ENABLESSL_CERT=/deployment/Cert/cert.pem
-        - SPLUNK_HTTP_ENABLESSL_PRIVKEY=/deployment/Cert/key.pem
-        - SPLUNK_HTTP_ENABLESSL_PRIVKEY_PASSWORD=abcd1234
-      ports:
-        - "8000:8000"
+  #splunk:
+  #    image: splunk/splunk:latest
+  #    environment:
+  #      - SPLUNK_START_ARGS=--accept-license
+  #      - SPLUNK_PASSWORD=admin123./
+  #      - SPLUNK_HTTP_ENABLESSL=true
+  #      - SPLUNK_HTTP_ENABLESSL_CERT=/deployment/Cert/cert.pem
+  #      - SPLUNK_HTTP_ENABLESSL_PRIVKEY=/deployment/Cert/key.pem
+  #      - SPLUNK_HTTP_ENABLESSL_PRIVKEY_PASSWORD=abcd1234
+  #    ports:
+  #      - "8000:8000"
 #volumes:
 #  db-data:

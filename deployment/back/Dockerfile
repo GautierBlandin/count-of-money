@@ -12,6 +12,4 @@ RUN npm install \
         && npm install typescript -g
 COPY ./back .
 
-#RUN ts-node src/init.ts
-
-CMD ["yarn", "build"]
+CMD ["npm", "run", "build"]

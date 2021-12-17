@@ -1,38 +1,45 @@
-"use strict";
-exports.__esModule = true;
-var express_1 = require("express");
-var CryptoRouter_1 = require("./api/Crypto/CryptoRouter");
-var app = (0, express_1["default"])();
-var port = 8079;
-app.use(express_1["default"].urlencoded());
+import express from 'express';
+const app = express();
+const port = 8080;
 //USER MANAGEMENT
-app.post('/users/register', function (req, res) {
+app.post('/users/register', (req, res) => {
     res.send('placeholder');
 });
-app.post('/users/login', function (req, res) {
+app.post('/users/login', (req, res) => {
     res.send('placeholder');
 });
-app.get('/users/auth', function (req, res) {
+app.get('/users/auth', (req, res) => {
     res.send('placeholder');
 });
-app.post('/users/logout', function (req, res) {
+app.post('/users/logout', (req, res) => {
     res.send('placeholder');
 });
-app.get('/users/profile', function (req, res) {
+app.get('/users/profile', (req, res) => {
     res.send('placeholder');
 });
-app.put('/users/profile', function (req, res) {
+app.put('/users/profile', (req, res) => {
     res.send('placeholder');
 });
 //CRYPTOS MANAGEMENT
-app.use('', CryptoRouter_1.cryptoRouter);
+app.get('/cryptos', (req, res) => {
+    res.send('placeholder');
+});
+app.get('/cryptos/:id', (req, res) => {
+    res.send('placeholder');
+});
+app.post('/cryptos', (req, res) => {
+    res.send('placeholder');
+});
+app.delete('/cryptos', (req, res) => {
+    res.send('placeholder');
+});
 //PRESS MANAGEMENT
-app.get('/articles', function (req, res) {
+app.get('/articles', (req, res) => {
     res.send('placeholder');
 });
-app.get('/articles/:id', function (req, res) {
+app.get('/articles/:id', (req, res) => {
     res.send('placeholder');
 });
-app.listen(port, function () {
-    console.log("Example app listening at http://localhost:".concat(port));
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
 });
