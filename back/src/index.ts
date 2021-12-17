@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import {cryptoRouter} from "./api/Crypto/CryptoRouter";
 import {AuthRouter} from "./api/Authentication/AuthRouter";
+import {ProfileRouter} from "./api/Profile/ProfileRouter";
 import cors from 'cors';
 import {createConnection} from "typeorm";
 import {CryptoCurrency} from "./entity/CryptoCurrency";
@@ -18,6 +19,9 @@ app.use('', cryptoRouter);
 
 //AUTHENTICATION
 app.use('/users', AuthRouter);
+
+// PROFILE
+app.use('/users', ProfileRouter);
 
 //PRESS MANAGEMENT
 app.get('/articles',(req, res) => {

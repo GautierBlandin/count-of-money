@@ -9,6 +9,9 @@ import {useLocation} from "react-router-dom";
 import {AuthContext} from "../context/auth.context";
 
 function OAuthCallbackComponent() {
+
+    const [coinres, setCoinres] = useState({})
+
     const authContext = useContext(AuthContext)
 
     const [email, setEmail] = useState<string>("");
