@@ -7,9 +7,9 @@ import './Market.css'
 export default function Market() {
 
   return (
-    
+
       <div className="marketBackground">
-        
+
           <h1 className="HMarket">Market</h1>
 
           <div className="container">
@@ -52,7 +52,7 @@ export default function Market() {
                     <td><span className="dollar">Cell 5</span></td>
                     <td><span className="dollar">Cell 6</span></td>
                   </tr>
-                  <tr>  
+                  <tr>
                     <td>Cell 1</td>
                     <td><span className="rank">Cell 2</span></td>
                     <td><span className="dollar">Cell 3</span></td>
@@ -67,6 +67,6 @@ export default function Market() {
           </div>
 
       </div>
-    
+
   );
 }

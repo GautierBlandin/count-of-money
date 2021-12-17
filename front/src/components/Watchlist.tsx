@@ -6,6 +6,7 @@ import{
   useState
 } from "react";
 import {useLocation} from "react-router-dom";
+import axios from 'axios';
 
 import {
   Input, Form
@@ -53,7 +54,7 @@ export default function Watchlist() {
 
   // onClick: add cryptocurrency (row) to watchlist (table)
   const [state, setState] = useState<IState>({rows: []});
-  
+
   const addRow = () => {
     setState({
       rows: [...state.rows, { nameCryptoRow: crypto }]
@@ -114,7 +115,7 @@ export default function Watchlist() {
             </thead>
             <tbody>
                 { rows.map(element => (
-                  <tr> 
+                  <tr>
                     <td>{element.nameCryptoRow}</td> {/* const from onChange input */}
                     <td><span className="rank">1</span></td>
                     <td><span className="dollar">49759</span></td>

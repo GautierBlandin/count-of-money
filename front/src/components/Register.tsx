@@ -73,7 +73,7 @@ export default function Register() {
             <div className="CLoginLink">
               <p>You already have an account or wanna login with Google? <a href="Login">Sign in</a>.</p>
             </div>
-          </Form>    
+          </Form>
         </div>
       </div>
     );
