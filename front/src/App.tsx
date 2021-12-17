@@ -1,38 +1,33 @@
 import React from 'react';
 
-import Account from './components/Account';
-import Home from './components/Home';
-import Market from './components/Market';
-import Settings from './components/Settings';
-import Watchlist from './components/Watchlist';
-import Login from './components/Login';
-import Register from './components/Register';
+import {
+    Routes,
+    Route,
+    BrowserRouter
+} from 'react-router-dom';
+import Home from "./components/Home";
+import OAuthCallbackComponent from "./components/OAuthCallback.component";
+import LoginComponent from "./components/Login.component";
+import AuthProvider from "./context/providers/authContext.provider";
 
-import Navigation from './shared/Navigation';
-
-import { Routes ,Route } from 'react-router-dom';
 
 const App: React.FC = props => {
-  return (        
-    <>
-      <div className="App">
-        <Navigation />
-      </div>
-      <Routes>                
-        <Route path='/Account' element={<Account/>} /> 
-        <Route path='/Home' element={<Home/>} />
-        <Route path='/Market' element={<Market/>} /> 
-        <Route path='/Settings' element={<Settings/>} />
-        <Route path='/Watchlist' element={<Watchlist/>} />
-        <Route path='/' element={<Home/>} />    
-        <Route path='/Login' element={<Login/>} />
-        <Route path='/Register' element={<Register/>} />
+  return(
+      <AuthProvider>
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/" element={<Home/>}>
+                  </Route>
+                  <Route path="/oauth-callback" element={<OAuthCallbackComponent/>}>
 
-        <Route path='/Navigation' element={<Navigation/>} />
+                  </Route>
+                  <Route path="/login" element={<LoginComponent/>}>
 
-      </Routes>
-    </>
-  );
+                  </Route>
+              </Routes>
+          </BrowserRouter>
+      </AuthProvider>
+  )
 }
 
-export default App;
+export default App

@@ -2,6 +2,7 @@ import express from 'express';
 import {CryptoController} from "../../controller/CryptoController";
 import {CryptoFetcher} from "../../CryptoExternalAPIs/CryptoDataFetcher/Fetcher";
 import {Period} from "../../CryptoExternalAPIs/cryptoExternalFetcher.interface";
+import {withAuth} from "../../../libraries/express_middlewares";
 
 export const cryptoRouter = express.Router();
 
@@ -11,7 +12,7 @@ export const cryptoRouter = express.Router();
  * @param path - Express path
  * @param handler - HTTP request handler
  */
-cryptoRouter.get('/cryptos/:symbol', async (req, res) => {
+cryptoRouter.get('/cryptos/:symbol', withAuth(),async (req, res) => {
 
   // Fetch the crypto entity and its informations from the database, fail with 404 if the symbol is not found.
   const controller = await CryptoController.getCryptoController()
@@ -75,7 +76,7 @@ cryptoRouter.get('/cryptos', async (req, res) => {
  * @param id: The id corresponsding to geckoCoin's coin id
  * @param symbol: The crypto currency's symbol
  */
-cryptoRouter.post('/cryptos', async (req, res) => {
+cryptoRouter.post('/cryptos', withAuth(true), async (req, res) => {
   console.log(req.body)
 
   if(!(req.body as {id: string, symbol: string})){
@@ -112,7 +113,7 @@ cryptoRouter.post('/cryptos', async (req, res) => {
  * @function DELETE crypto
  * @param The crypto's id
  */
-cryptoRouter.delete('/cryptos/:cmid', async (req, res) => {
+cryptoRouter.delete('/cryptos/:cmid', withAuth(true), async (req, res) => {
     const controller = await CryptoController.getCryptoController();
     await controller.deleteCrypto({symbol: req.params.cmid}).catch((err) => {
       console.log(err)
@@ -125,7 +126,7 @@ cryptoRouter.delete('/cryptos/:cmid', async (req, res) => {
   }
 )
 
-cryptoRouter.get('/cryptos/:symbol/history/:period', async (req, res) => {
+cryptoRouter.get('/cryptos/:symbol/history/:period', withAuth(), async (req, res) => {
   const fetcher = CryptoFetcher.getCryptoFetcher()
   let realTimeData;
   switch(req.params.period){

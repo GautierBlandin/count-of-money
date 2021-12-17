@@ -19,4 +19,7 @@ export class User {
 
   @Column({nullable: true})
   access_token?: string
+
+  @Column({default: false})
+  admin: boolean
 }
