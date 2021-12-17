@@ -2,8 +2,8 @@ version: '3'
 services:
   postgres:
     image: postgres
-    #volumes:
-    #  - db-data/:var/lib/prostgresql/data
+    volumes:
+      - ./data/:var/lib/prostgresql/data
     env_file:
       - ./.env.prod
     ports:
@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: ./deployment/back/Dockerfile
-    #entrypoint: [ "./wait-for-it.sh", "postgres:5432", "--", "npm", "run", "typeorm", "migration:run"]
+    entrypoint: [ "./wait-for-it.sh", "postgres:5432", "--", "npm", "run", "typeorm", "migration:run"]
     env_file:
       - ./.env.prod
     ports:
@@ -36,5 +36,3 @@ services:
       - ./deployment/front/nginx_configuration:/etc/nginx/conf.d
     depends_on:
       - backend
-#volumes:
-#  db-data:
