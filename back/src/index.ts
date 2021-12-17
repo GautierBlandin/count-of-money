@@ -1,37 +1,27 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import {cryptoRouter} from "./api/Crypto/Crypto";
+import {cryptoRouter} from "./api/Crypto/CryptoRouter";
+import {AuthRouter} from "./api/Authentication/AuthRouter";
+import {ProfileRouter} from "./api/Profile/ProfileRouter";
+import cors from 'cors';
+import {createConnection} from "typeorm";
+import {CryptoCurrency} from "./entity/CryptoCurrency";
+import {User} from "./entity/User";
+
 const app = express();
 const port = 8079;
 
-//USER MANAGEMENT
-app.post('/users/register', (req, res) => {
-  res.send('placeholder');
-});
-
-app.post('/users/login', (req, res) => {
-  res.send('placeholder');
-});
-
-app.get('/users/auth', (req, res) => {
-  res.send('placeholder');
-});
-
-app.post('/users/logout', (req, res) => {
-  res.send('placeholder');
-});
-
-app.get('/users/profile', (req, res) => {
-  res.send('placeholder');
-});
-
-app.put('/users/profile', (req, res) => {
-  res.send('placeholder');
-});
-
+app.use(express.urlencoded())
+app.use(cors());
 
 //CRYPTOS MANAGEMENT
-app.use('', cryptoRouter)
+app.use('', cryptoRouter);
+
+//AUTHENTICATION
+app.use('/users', AuthRouter);
+
+// PROFILE
+app.use('/users', ProfileRouter);
 
 //PRESS MANAGEMENT
 app.get('/articles',(req, res) => {
@@ -41,6 +31,8 @@ app.get('/articles',(req, res) => {
 app.get('/articles/:id',(req, res) => {
   res.send('placeholder');
 });
+
+createConnection();
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

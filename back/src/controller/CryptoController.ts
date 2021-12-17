@@ -1,5 +1,5 @@
 import {CryptoCurrency} from "../entity/CryptoCurrency";
-import {Repository} from "typeorm";
+import {getRepository, Repository} from "typeorm";
 import {
   CreateCryptoCurrencyRequest,
   DeleteCryptoCurrencyRequest, GetCryptoCurrencyRequest,
@@ -26,8 +26,8 @@ export class CryptoController{
    */
   static async getCryptoController(){
     const controller = new CryptoController();
-    const connection = await DbConn.getConn();
-    controller.cr = connection.getRepository(CryptoCurrency)
+    // const connection = await DbConn.getConn();
+    controller.cr = getRepository(CryptoCurrency)
     return controller
   }
 
@@ -49,7 +49,7 @@ export class CryptoController{
     if( req.imageURL ) cryptoCurency.imageURL = req.imageURL;
     if( req.symbol ) cryptoCurency.symbol = req.symbol;
     if( req.geckoID ) cryptoCurency.geckoID = req.geckoID;
-    await this.cr.save(cryptoCurency);
+    return await this.cr.save(cryptoCurency);
   }
 
   /**
@@ -63,7 +63,7 @@ export class CryptoController{
     if( req.imageURL ) crypto.imageURL = req.imageURL;
     if( req.symbol ) crypto.symbol = req.symbol;
     if( req.geckoID ) crypto.geckoID = req.geckoID;
-    await this.cr.save(crypto);
+    return await this.cr.save(crypto);
   }
 
   /**
@@ -71,6 +71,6 @@ export class CryptoController{
    * @param req
    */
   async deleteCrypto(req: DeleteCryptoCurrencyRequest){
-    await this.cr.delete({uuid: req.uuid})
+    return await this.cr.delete(req)
   }
 }

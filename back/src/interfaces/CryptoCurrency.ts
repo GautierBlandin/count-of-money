@@ -17,7 +17,7 @@ export interface GetCryptoCurrencyRequest extends  Partial<CryptoCurrencyInterfa
 /**
  * @interface CreateCryptoCurrencyRequest - The abstract interface for a cryptocurrency creation request
  */
-export interface CreateCryptoCurrencyRequest extends Partial<CryptoCurrencyInterface>{
+export interface CreateCryptoCurrencyRequest extends Omit<CryptoCurrencyInterface, 'uuid'>{
 }
 
 /**
@@ -31,4 +31,4 @@ export interface UpdateCryptoCurrencyRequest extends Omit<CryptoCurrencyInterfac
 /**
  * @interface DeleteCryptoCurrencyRequest - The abstract interface for a cryptocurrency deletion request
  */
-export interface DeleteCryptoCurrencyRequest extends Pick<CryptoCurrencyInterface, 'uuid'> {}
+export interface DeleteCryptoCurrencyRequest extends Omit<Partial<CryptoCurrencyInterface>, 'imageURL'> {}
