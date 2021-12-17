@@ -7,13 +7,14 @@ services:
     env_file:
       - ./.env.prod
     ports:
-    - "4000:4000"
+    - "5432:5432"
 
   backend:
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./deployment/back/Dockerfile
+    command: [ "./wait-for-it.sh", "postgres:5432", "--", "npm", "run", "typeorm", "migration:run" ]
     env_file:
       - ./.env.prod
     ports:
@@ -31,10 +32,21 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ./deployment/front/nginx_configuration con:/etc/nginx/conf.d
+    #volumes:
+    #  - ./deployment/front/nginx_configuration con:/etc/nginx/conf.d
     depends_on:
       - backend
+
+  splunk:
+      image: splunk/splunk:latest
+      environment:
+        - SPLUNK_START_ARGS=--accept-license
+        - SPLUNK_PASSWORD=admin123./
+        - SPLUNK_HTTP_ENABLESSL=true
+        - SPLUNK_HTTP_ENABLESSL_CERT=/deployment/Cert/cert.pem
+        - SPLUNK_HTTP_ENABLESSL_PRIVKEY=/deployment/Cert/key.pem
+        - SPLUNK_HTTP_ENABLESSL_PRIVKEY_PASSWORD=abcd1234
+      ports:
+        - "8000:8000"
 #volumes:
 #  db-data:
-
