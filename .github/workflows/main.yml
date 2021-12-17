@@ -1,0 +1,55 @@
+# Custom workflow
+
+name: CI-CD
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '**/**.md'
+      - './documentation/'
+      - './assets/'
+      - './.idea/'
+      - './mobile/'
+      - './mobile_comp/'
+  #pull_request:
+    #branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch: 
+
+jobs:
+#  build:
+#    name: Build
+#    runs-on: ubuntu-latest
+
+#    steps:
+#    - uses: actions/checkout@v2
+    
+#    - name: Build the docker_compose
+#      run: docker-compose build
+      
+ # This workflow contains a single job called "build"
+  deploy:
+    #needs: [build]
+    name: Deploy
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - name: Connecting to Azure VM by SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: 40.117.44.114
+          username: azureuser
+          key_path: "azure-key.pem"
+          script: |
+            cd T-POO-700-LIL-4
+            git pull origin master
+            sudo docker-compose down
+            sudo docker-compose build --no-cache
+            sudo docker-compose up --detach
