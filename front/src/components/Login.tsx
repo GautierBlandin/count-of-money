@@ -7,18 +7,29 @@ import {
 import './Login.css';
 
 export default function Login() {
-
-  // const [token, setToken] = useState();
-
-  // if(!token) {
-  //  return <Login setToken={setToken} />
-  // }
-
   const [email, setEmail] = useState("");
 
   const handleSubmit = (evt: { preventDefault: () => void; }) => {
     evt.preventDefault();
     console.log({email})
+  }
+
+  const handleLogin = async () => {
+    const auth_url = 'https://accounts.google.com/o/oauth2/auth'
+
+    const params = [
+      ['response_type', 'code'],
+      ['client_id', '67182165806-r0l3mf6fg61t65h7n6df8b8a5jee78g0.apps.googleusercontent.com'],
+      ['state', 'abcd'],
+      ['redirect_uri', 'http://localhost:3000/oauth-callback'],
+      ['scope', 'email'],
+    ]
+
+    const url = `${auth_url}?${params.map(el => el.join('=')).join('&')}`
+
+    console.log(url)
+
+    window.location.assign(url);
   }
 
   return (
@@ -30,7 +41,7 @@ export default function Login() {
           <FormGroup>
             <InputGroup>
                 <InputGroupText>
-                  @
+                  Email
                 </InputGroupText>
                 <Input
                   id="FEmail"
@@ -44,7 +55,7 @@ export default function Login() {
           <FormGroup>
             <InputGroup>
               <InputGroupText>
-              •••
+              Password
               </InputGroupText>
               <Input
                 id="FPassword"
@@ -62,7 +73,7 @@ export default function Login() {
               >
                 Login
               </Button>
-              <div className="g-signin2" data-onsuccess="onSignIn"></div>
+              <div className="g-signin2" data-onsuccess="onSignIn" onClick={handleLogin}/>
             </div>
           </div>
           <div className="CRegisterLink">

@@ -24,7 +24,7 @@ export default function Register() {
             <FormGroup>
               <InputGroup>
                 <InputGroupText>
-                  @
+                  Email
                 </InputGroupText>
                 <Input
                           id="FEmail"
@@ -38,7 +38,7 @@ export default function Register() {
             <FormGroup>
               <InputGroup>
                 <InputGroupText>
-                •••
+                Password
                 </InputGroupText>
                 <Input
                           id="FPassword"
@@ -51,7 +51,7 @@ export default function Register() {
             <FormGroup>
               <InputGroup>
                 <InputGroupText>
-                •••
+                  Password
                 </InputGroupText>
                 <Input
                           id="FPasswordRepeat"
@@ -70,7 +70,7 @@ export default function Register() {
               </Button>
             </div>
             <div className="CLoginLink">
-              <p>You already have an account or wanna login with Google? <a href="Login">Sign in</a>.</p>
+              <p>You already have an account or you want to login with Google? <a href="Login">Sign in</a>.</p>
             </div>
           </Form>
         </div>
