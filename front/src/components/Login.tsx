@@ -5,13 +5,28 @@ import {
 } from 'reactstrap';
 
 import './Login.css';
+import {login} from "../api/Auth";
+import {AuthContext} from "../context/auth.context";
+import {useNavigate} from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const authContext = React.useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleSubmit = (evt: { preventDefault: () => void; }) => {
+  const handleSubmit = async (evt: { preventDefault: () => void; }) => {
     evt.preventDefault();
     console.log({email})
+    console.log({password})
+    const resp = await login(email, password);
+    if(resp){
+      authContext.setEmail(resp.email);
+      authContext.setAuthToken(resp.access_token);
+      navigate('/Home');
+    }else {
+      alert("Invalid credentials");
+    }
   }
 
   const handleLogin = async () => {
@@ -62,6 +77,7 @@ export default function Login() {
                 name="password"
                 placeholder="Enter password"
                 type="password"
+                onChange={e => setPassword(e.target.value)}
               />
             </InputGroup>
           </FormGroup>
