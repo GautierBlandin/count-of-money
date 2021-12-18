@@ -2,7 +2,7 @@ import express from 'express';
 import {CryptoController} from "../../controller/CryptoController";
 import {CryptoFetcher} from "../../CryptoExternalAPIs/CryptoDataFetcher/Fetcher";
 import {Period} from "../../CryptoExternalAPIs/cryptoExternalFetcher.interface";
-import {withAuth} from "../../../libraries/express_middlewares";
+import {withAuth} from "../../libraries/express_middlewares";
 
 export const cryptoRouter = express.Router();
 

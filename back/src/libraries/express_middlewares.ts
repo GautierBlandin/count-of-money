@@ -1,7 +1,7 @@
 // Return a middleware that the Authorization header is valid
 import {RequestHandler} from "express";
 import {decodeAccessToken} from "./Authentication";
-import {User} from "../src/entity/User";
+import {User} from "../entity/User";
 import {getRepository} from "typeorm";
 
 export function withAuth(admin?:boolean):RequestHandler{

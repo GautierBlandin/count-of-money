@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import {getRepository} from "typeorm";
 import {User} from "../../entity/User";
-import {generateAccessToken, encryptPassword, decodeAccessToken} from "../../../libraries/Authentication";
+import {generateAccessToken, encryptPassword, decodeAccessToken} from "../../libraries/Authentication";
 
 export const AuthRouter = express.Router();
 
@@ -68,12 +68,20 @@ AuthRouter.get('/auth/:provider', async (req, res) => {
  */
 AuthRouter.post('/register', async(req, res) => {
     // Get user's password and email adress
+    console.log(req)
+    console.log("req body", req.body)
     const email = req.body.email;
     const password = req.body.password;
     const access_token = generateAccessToken(email);
 
     // Store the new user in the database
     const userRepository = getRepository(User);
+    const existingUser = await userRepository.findOne({email: email});
+    if(existingUser){
+        res.status(400)
+        res.send('User already exists')
+        return
+    }
     const user = await userRepository.save(
         {
             email: email,
