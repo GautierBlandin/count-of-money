@@ -7,10 +7,9 @@ import {
 import axios from 'axios';
 import {useLocation} from "react-router-dom";
 import {AuthContext} from "../context/auth.context";
+import React from 'react';
 
 function OAuthCallbackComponent() {
-
-    const [coinres, setCoinres] = useState({})
 
     const authContext = useContext(AuthContext)
 

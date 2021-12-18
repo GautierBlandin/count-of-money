@@ -1,0 +1,9 @@
+.Navbar{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgb(204, 158, 82, 0.85);
+}
+
+.DNavbarBrand, .SEmail {
+    color: #CC9E52;
+}

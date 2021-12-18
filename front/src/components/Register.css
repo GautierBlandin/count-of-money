@@ -1,0 +1,50 @@
+.CRegister, .BSubmit, .CLoginLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CRegister{
+  width: 23%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+  text-align: center;
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(250, 251, 252, 0.95);
+  border: 1px solid rgb(197, 197, 197);
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+
+.BSubmit {
+  padding-top: 4%;
+}
+
+.BSubmit img {
+  text-align: right;
+}
+
+.CLoginLink {
+  padding-top: 4%;
+}
+
+.HRegister{
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  color: #528FCC;
+  padding-top: 1%;
+}
+
+.registerBackground{
+  /* Middlepage form */
+
+  padding-top: 11%;
+  background: #FFEFBA;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #dddddd);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #dddddd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  width: 100%;
+  height: 94vh;
+}
