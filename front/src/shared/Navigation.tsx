@@ -16,8 +16,10 @@ import {
 
 import './Navigation.css';
 import Login from '../components/Login'
+import {AuthContext} from "../context/auth.context";
 
-const Navigation = () => {  
+const Navigation = () => {
+    const authContext = useContext(AuthContext);
 
     return (
         <div className="DNavbar">
@@ -79,7 +81,7 @@ const Navigation = () => {
                     </UncontrolledDropdown>
                 </Nav>
                 <NavbarText>
-                    Hi <span className="SEmail">'email'</span> !
+                    Hi <span className="SEmail">{authContext.email}</span> !
                 </NavbarText>
                 </Collapse>
             </Navbar>

@@ -1,5 +1,5 @@
 import express from 'express';
-import {decodeAccessToken} from "../../../libraries/Authentication";
+import {decodeAccessToken} from "../../libraries/Authentication";
 import {getRepository} from "typeorm";
 import {User} from "../../entity/User";
 

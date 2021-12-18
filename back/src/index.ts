@@ -5,13 +5,13 @@ import {AuthRouter} from "./api/Authentication/AuthRouter";
 import {ProfileRouter} from "./api/Profile/ProfileRouter";
 import cors from 'cors';
 import {createConnection} from "typeorm";
-import {CryptoCurrency} from "./entity/CryptoCurrency";
-import {User} from "./entity/User";
+
 
 const app = express();
 const port = 8079;
 
 app.use(express.urlencoded())
+app.use(express.json())
 app.use(cors());
 
 //CRYPTOS MANAGEMENT

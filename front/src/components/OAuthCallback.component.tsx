@@ -2,18 +2,16 @@ import {
     useMemo,
     useContext,
     useEffect,
-    useState
 } from 'react';
 import axios from 'axios';
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../context/auth.context";
 import React from 'react';
 
 function OAuthCallbackComponent() {
 
     const authContext = useContext(AuthContext)
-
-    const [email, setEmail] = useState<string>("");
+    const navigate = useNavigate();
 
     function useQuery() {
         const { search } = useLocation();
@@ -31,17 +29,13 @@ function OAuthCallbackComponent() {
             console.log(res.data);
             authContext.setEmail(res.data.email)
             authContext.setAuthToken(res.data.access_token)
+            navigate('/Home')
         })
     }, [])
 
-    useEffect(() => {
-        setEmail(authContext.email)
-    }, [authContext.email])
-
     return (
         <div>
-            Your email is {email}
-            Your access token is {authContext.authToken}
+            <h1>Loading...</h1>
         </div>
     );
 }
