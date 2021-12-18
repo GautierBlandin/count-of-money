@@ -24,8 +24,7 @@ const App: React.FC = props => {
             <Route path='/Market' element={<Market/>} />
             <Route path='/ChartsPanel' element={<ChartsPanel/>} />
             <Route path='/Watchlist' element={<Watchlist/>} />
-            <Route path='/' element={<Home/>} />
-              <Route path="/oauth-callback" element={<OAuthCallbackComponent/>}/>
+            <Route path='/' element={<Home/>} /><Route path="/oauth-callback" element={<OAuthCallbackComponent/>}/>
             <Route path='/Login' element={<Login/>} />
             <Route path='/Register' element={<Register/>} />
             <Route path='/Navigation' element={<Navigation/>} />
@@ -34,4 +33,4 @@ const App: React.FC = props => {
   );
 }
 
-export default App;
+export default App
