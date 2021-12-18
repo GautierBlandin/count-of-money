@@ -9,7 +9,7 @@ import {CryptoCurrencyInterface} from "../interfaces/CryptoCurrency";
  * @property geckoID - The coinGecko ID of the cryptocurrency, useful for qerying the CoinGecko API
  * @property imageURL - The Image URL of cryptocurrency's logo
  */
-@Entity("CryptoCurrency")
+@Entity("crypto_currency")
 export class CryptoCurrency implements CryptoCurrencyInterface{
   @PrimaryGeneratedColumn("uuid")
   uuid: string

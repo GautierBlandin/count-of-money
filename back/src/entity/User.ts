@@ -1,6 +1,6 @@
 import {Column, Entity, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 
-@Entity("User")
+@Entity("user")
 export class User {
   @PrimaryColumn({unique: true})
   email: string

@@ -26,7 +26,6 @@ export class CryptoController{
    */
   static async getCryptoController(){
     const controller = new CryptoController();
-    // const connection = await DbConn.getConn();
     controller.cr = getRepository(CryptoCurrency)
     return controller
   }
