@@ -7,10 +7,28 @@ export default function AuthProvider({children} : ComponentProps<any>){
     const [authToken, setAuthToken] = useState<string>("");
 
     useEffect(() => {
-        console.log('from auth context')
-        console.log(email)
-        console.log(authToken)
-    }, [authToken])
+        const token = localStorage.getItem("authToken");
+        if(token){
+            setAuthToken(token);
+        }
+    }, []);
+
+    useEffect(() => {
+        const email = localStorage.getItem("email");
+        if(email){
+            setEmail(email);
+        }
+    }, []);
+
+    const setAndStoreToken = (token: string) => {
+        setAuthToken(token);
+        localStorage.setItem("authToken", token);
+    }
+
+    const setAndStoreEmail = (email: string) => {
+        setEmail(email);
+        localStorage.setItem("email", email);
+    }
 
 
     return(
@@ -18,9 +36,9 @@ export default function AuthProvider({children} : ComponentProps<any>){
             email: email,
             username: username,
             authToken: authToken,
-            setEmail: setEmail,
+            setEmail: setAndStoreEmail,
             setUsername: setUsername,
-            setAuthToken: setAuthToken
+            setAuthToken: setAndStoreToken
         }}>
             {children}
         </AuthContext.Provider>
