@@ -68,8 +68,6 @@ AuthRouter.get('/auth/:provider', async (req, res) => {
  */
 AuthRouter.post('/register', async(req, res) => {
     // Get user's password and email adress
-    console.log(req)
-    console.log("req body", req.body)
     const email = req.body.email;
     const password = req.body.password;
     const access_token = generateAccessToken(email);
