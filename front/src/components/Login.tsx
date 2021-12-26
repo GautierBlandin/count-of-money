@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 
 import './Login.css';
-import {login} from "../api/Auth";
+import {AuthAPI} from "@gautierblandin/comoney-api";
 import {AuthContext} from "../context/auth.context";
 import {useNavigate} from "react-router-dom";
 
@@ -19,7 +19,7 @@ export default function Login() {
     evt.preventDefault();
     console.log({email})
     console.log({password})
-    const resp = await login(email, password);
+    const resp = await AuthAPI.login(email, password);
     if(resp){
       authContext.setEmail(resp.email);
       authContext.setAuthToken(resp.access_token);

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 import {
-  Button, Form, FormGroup, Label, Input, InputGroup, InputGroupText
+  Button, Form, FormGroup, Input, InputGroup, InputGroupText
 } from 'reactstrap';
 
 import './Register.css';
 import {AuthContext} from "../context/auth.context";
-import {register} from "../api/Auth";
+import {AuthAPI} from "@gautierblandin/comoney-api";
 import {useNavigate} from "react-router-dom";
 
 export default function Register() {
@@ -24,7 +24,7 @@ export default function Register() {
     evt.preventDefault();
     if (emailValidationRegex.test(email) && password === passwordConfirm) {
       console.log("Registering user with email: " + email + " and password: " + password);
-      const user = await register(email, password);
+      const user = await AuthAPI.register(email, password);
       if(user){
         authContext.setEmail(user.email);
         authContext.setAuthToken(user.access_token)

@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 
 import './Watchlist.css'
-import {getCryptos} from "../api/Cryptos";
+import {CryptoAPI} from "@gautierblandin/comoney-api";
 import {AuthContext} from "../context/auth.context";
 
 interface watchListRow{
@@ -36,7 +36,7 @@ export default function Watchlist() {
 
   useEffect(() => {
     console.log(watchlist)
-    getCryptos(watchlist).then(cryptos => {
+    CryptoAPI.getCryptos(watchlist).then(cryptos => {
       cryptos.cryptos.map(crypto => {
         setWatchlistRows([...watchlistRows, {
           name: crypto.name,
