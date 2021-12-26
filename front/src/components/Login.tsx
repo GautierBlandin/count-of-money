@@ -34,7 +34,7 @@ export default function Login() {
 
     const params = [
       ['response_type', 'code'],
-      ['client_id', '67182165806-r0l3mf6fg61t65h7n6df8b8a5jee78g0.apps.googleusercontent.com'],
+      ['client_id', process.env.GOOGLE_CLIENT_ID],
       ['state', 'abcd'],
       ['redirect_uri', 'http://localhost:3000/oauth-callback'],
       ['scope', 'email'],

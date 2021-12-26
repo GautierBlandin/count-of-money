@@ -6,9 +6,10 @@ import {ProfileRouter} from "./api/Profile/ProfileRouter";
 import cors from 'cors';
 import {createConnection} from "typeorm";
 
+dotenv.config()
 
 const app = express();
-const port = 8079;
+const port = process.env.PORT || 8079;
 
 app.use(express.urlencoded())
 app.use(express.json())

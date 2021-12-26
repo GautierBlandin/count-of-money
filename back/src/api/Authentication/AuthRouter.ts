@@ -19,8 +19,8 @@ AuthRouter.get('/auth/:provider', async (req, res) => {
                 grant_type: 'authorization_code',
                 code: req.query.code,
                 redirect_uri: 'http://localhost:3000/oauth-callback',
-                client_id: '67182165806-r0l3mf6fg61t65h7n6df8b8a5jee78g0.apps.googleusercontent.com',
-                client_secret: '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'
+                client_id: process.env.GOOGLE_CLIENT_ID,
+                client_secret: process.env.GOOGLE_CLIENT_SECRET
             }).catch(err => {console.log(err)})
 
             // If googleReponse is not defined to the request being rejected, send a 400 status error

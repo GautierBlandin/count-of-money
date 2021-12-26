@@ -1287,10 +1287,22 @@
   "resolved" "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.2.tgz"
   "version" "1.1.2"
 
-"@gautierblandin/types@^1.0.2":
-  "integrity" "sha512-lAYv+g0EPwy8PIX/eukDCDhHCTrhxVwMqCuZ68fM/hz6pMWZsn92qSdVoV4UZbLN0npZdlCW8ttUkBvIFjOIzQ=="
-  "resolved" "https://registry.npmjs.org/@gautierblandin/types/-/types-1.0.2.tgz"
-  "version" "1.0.2"
+"@gautierblandin/comoney-api@^1.0.4":
+  "integrity" "sha512-vX6QKkJwnt2O1X+yZ4hDR5YtSXefOZ3HP9FlKDgGrSqjvu3NgLU0XVfC56/D3JvvO33pvLlvkf1oxAP9UyDE7Q=="
+  "resolved" "https://registry.npmjs.org/@gautierblandin/comoney-api/-/comoney-api-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "@gautierblandin/types" "^1.0.2"
+    "@types/node" "^17.0.5"
+    "@types/qs" "^6.9.7"
+    "axios" "^0.24.0"
+    "qs" "^6.10.2"
+    "typescript" "^4.5.4"
+
+"@gautierblandin/types@^1.0.2", "@gautierblandin/types@^1.0.3":
+  "integrity" "sha512-tKI7cZe0fH0T30Zqch5uV5CbF179Y1t1LHC9ESap4tuNZ0ofbw3AY4vXDqnK0iAPQCywL0NdNSuKnELp41BdCA=="
+  "resolved" "https://registry.npmjs.org/@gautierblandin/types/-/types-1.0.3.tgz"
+  "version" "1.0.3"
   dependencies:
     "@types/node" "^17.0.4"
 
@@ -1942,6 +1954,11 @@
   "integrity" "sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.4.tgz"
   "version" "17.0.4"
+
+"@types/node@^17.0.5":
+  "integrity" "sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.5.tgz"
+  "version" "17.0.5"
 
 "@types/normalize-package-data@^2.4.0":
   "integrity" "sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw=="
@@ -4555,6 +4572,11 @@
   "integrity" "sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA=="
   "resolved" "https://registry.npmjs.org/dotenv-expand/-/dotenv-expand-5.1.0.tgz"
   "version" "5.1.0"
+
+"dotenv@^10.0.0":
+  "integrity" "sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q=="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-10.0.0.tgz"
+  "version" "10.0.0"
 
 "dotenv@8.2.0":
   "integrity" "sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw=="
@@ -11283,6 +11305,11 @@
   "integrity" "sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-3.8.3.tgz"
   "version" "3.8.3"
+
+"typescript@^4.5.4":
+  "integrity" "sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg=="
+  "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.5.4.tgz"
+  "version" "4.5.4"
 
 "unbox-primitive@^1.0.1":
   "integrity" "sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw=="

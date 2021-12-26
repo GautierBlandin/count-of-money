@@ -44,7 +44,7 @@ export class CryptoFetcher implements CryptoExternalFetcher{
    */
   private vantageAxiosInstance: AxiosInstance = axios.create({
     baseURL: 'https://alphavantage.co/query',
-    params: {apikey: 'B83DCMU1MIFATDG0'}
+    params: {apikey: process.env.ALPHAVANTAGE_API_KEY}
   })
 
   /**
