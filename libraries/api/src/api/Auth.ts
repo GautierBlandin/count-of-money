@@ -1,5 +1,5 @@
-import {API} from "../config/config";
-import {AuthResponse} from "@gautierblandin/types"
+import { API } from "../config/config";
+import { AuthResponse } from "@gautierblandin/types"
 
 export async function register(email: string, password: string):Promise<AuthResponse|undefined> {
     console.log(email, password);

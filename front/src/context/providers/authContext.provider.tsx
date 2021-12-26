@@ -1,5 +1,6 @@
 import {AuthContext} from "../auth.context";
 import React, {ComponentProps, useEffect, useState} from "react";
+import {Config} from "@gautierblandin/comoney-api"
 
 export default function AuthProvider({children} : ComponentProps<any>){
     const [email, setEmail] = useState<string>("");
@@ -10,6 +11,7 @@ export default function AuthProvider({children} : ComponentProps<any>){
         const token = localStorage.getItem("authToken");
         if(token){
             setAuthToken(token);
+            Config.set_authorization(token);
         }
     }, []);
 
@@ -22,6 +24,7 @@ export default function AuthProvider({children} : ComponentProps<any>){
 
     const setAndStoreToken = (token: string) => {
         setAuthToken(token);
+        Config.set_authorization(token);
         localStorage.setItem("authToken", token);
     }
 
@@ -29,7 +32,6 @@ export default function AuthProvider({children} : ComponentProps<any>){
         setEmail(email);
         localStorage.setItem("email", email);
     }
-
 
     return(
         <AuthContext.Provider value = {{
