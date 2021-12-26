@@ -1,0 +1,17 @@
+{
+  "name": "@gautierblandin/types",
+  "version": "1.0.2",
+  "description": "API Types for the count of money project",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gautier Blandin",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.4"
+  }
+}

@@ -1,5 +1,5 @@
 import {axiosInstance} from "./axios";
-import {GetCryptosResponse} from "./types/Crypto.interface";
+import {GetCryptosResponse} from "@gautierblandin/types";
 
 export async function getCryptos(symbols: string[]) {
     return (await axiosInstance.get('/cryptos', {

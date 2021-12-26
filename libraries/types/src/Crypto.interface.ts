@@ -1,5 +1,4 @@
 export interface GetCryptoRequest {}
-
 export interface GetCryptoResponse {
   name: string;
   id: string;
@@ -12,11 +11,9 @@ export interface GetCryptoResponse {
 }
 
 export interface PostCryptoRequest {}
-
 export interface PostCryptoResponse {}
 
 export interface GetCryptosRequest {}
-
 export interface GetCryptosResponse {
   cryptos: GetCryptoResponse[]
 }

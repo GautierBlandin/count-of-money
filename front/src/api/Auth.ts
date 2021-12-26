@@ -1,5 +1,5 @@
 import {axiosInstance} from "./axios";
-import {AuthResponse} from "./types/Auth.interface";
+import {AuthResponse} from "@gautierblandin/types"
 
 export async function register(email: string, password: string):Promise<AuthResponse|undefined> {
     console.log(email, password);
