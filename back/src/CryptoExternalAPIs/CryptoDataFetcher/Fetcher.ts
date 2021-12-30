@@ -80,6 +80,10 @@ export class CryptoFetcher implements CryptoExternalFetcher{
   public async getCryptoData({id}: CryptoDataRequest): Promise<CryptoData>{
     const geckoResponse = await this.getCoinInformations({geckoID: id})
     return  {
+      market_cap: geckoResponse.market_cap,
+      market_cap_rank: geckoResponse.market_cap_rank,
+      price_change_24h: geckoResponse.price_change_24h,
+      price_change_percentage_24h: geckoResponse.price_change_percentage_24h,
       currentPrice: geckoResponse.market_data.current_price.eur,
       highestDailyPrice: geckoResponse.market_data.high_24h.eur,
       id: geckoResponse.id,
