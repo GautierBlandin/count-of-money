@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {CryptoCurrencyInterface} from "./cryptos.interface";
 
 /**
  * @class CryptoCurrency - A class to represent a CryptoCurrency in db
@@ -9,7 +10,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
  * @property imageURL - The Image URL of cryptocurrency's logo
  */
 @Entity("crypto_currency")
-export class CryptoCurrency {
+export class CryptoCurrency implements CryptoCurrencyInterface{
     @PrimaryGeneratedColumn("uuid")
     uuid: string
     @Column({unique: true})

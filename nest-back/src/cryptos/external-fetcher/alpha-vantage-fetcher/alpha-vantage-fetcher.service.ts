@@ -6,7 +6,7 @@ import axios, {AxiosInstance} from "axios";
 export class AlphaVantageFetcherService {
     private axiosInstance: AxiosInstance = axios.create({
         baseURL: 'https://alphavantage.co/query',
-        params: {apikey: process.env.ALPHAVANTAGE_API_KEY}
+        params: {apikey: process.env.ALPHA_VANTAGE_API_KEY}
     })
 
     private async getMinuteHistory({symbol, full}: {symbol: string, full?: boolean}){
@@ -16,8 +16,10 @@ export class AlphaVantageFetcherService {
                 market: 'EUR',
                 interval: '1min',
                 outputsize: full?'full':undefined,
-            }})
-        return res.data;
+            }}).catch(console.log)
+        if(res){
+            return res.data
+        }
     }
 
     private async getHourlyHistory({symbol, full}: {symbol: string, full: boolean}){

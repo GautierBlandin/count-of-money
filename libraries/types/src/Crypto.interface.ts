@@ -34,6 +34,7 @@ export interface GetCryptosResponse {
 }
 
 export interface GetRealTimeDataRequest {}
+
 export interface GetRealTimeDataResponse {
   period: string;
   historyLength: number;
@@ -45,4 +46,10 @@ export interface GetRealTimeDataResponse {
     lowest: number;
     closing: number;
   }[]
+}
+
+export enum Period{
+  MINUTE = 'minute',
+  HOURLY = 'hourly',
+  DAILY = 'daily'
 }

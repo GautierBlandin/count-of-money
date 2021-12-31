@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.1.5",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.2",
@@ -34,7 +35,7 @@
     "typeorm": "^0.2.41"
   },
   "devDependencies": {
-    "@gautierblandin/types": "^1.0.5",
+    "@gautierblandin/types": "^1.0.6",
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",

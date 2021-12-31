@@ -9,10 +9,10 @@
   "migrationsRun": false,
   "logging": false,
   "entities": [
-    "src/**/*.entity.{ts,js}"
+    "dist/**/*.entity.js"
   ],
   "migrations": [
-    "src/migration/**/*.{ts,js}"
+    "dist/migration/**/*.js"
   ],
   "cli": {
     "migrationsDir": "src/migration"
