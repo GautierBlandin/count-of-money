@@ -14,6 +14,17 @@ export interface GetCryptoResponse {
   price_change_percentage_24h: number;
 }
 
+export interface GetAllCryptosResponse {
+  cryptos: GetStaticCryptoResponse[]
+}
+
+export interface GetStaticCryptoResponse{
+  "name": string,
+  "symbol": string,
+  "imageURL": string,
+  "id": string,
+}
+
 export interface PostCryptoRequest {}
 export interface PostCryptoResponse {}
 

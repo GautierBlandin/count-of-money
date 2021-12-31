@@ -39,6 +39,16 @@ export class CryptoController{
   }
 
   /**
+   * @method getCryptos - Get all cryptos matching the constraint of the req object.
+   * @param req
+   */
+
+  async getAllCryptos(req: GetCryptoCurrencyRequest):Promise<CryptoCurrency[]>{
+    return await this.cr.find({where: req})
+  }
+
+
+  /**
    * @method saveCrypto() - Save a CryptoCurrency in the database
    * @param req
    */

@@ -14,6 +14,13 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
+"@gautierblandin/types@^1.0.5":
+  "integrity" "sha512-P4eb/rRQlnQxb6D4bpZroAOrgmE6hMZ2+MYC+vTPydYFiJQhM50Twdw1Cf2i2Wtj3PazW09uIVPNwY1bGSibPw=="
+  "resolved" "https://registry.npmjs.org/@gautierblandin/types/-/types-1.0.5.tgz"
+  "version" "1.0.5"
+  dependencies:
+    "@types/node" "^17.0.4"
+
 "@sindresorhus/is@^0.14.0":
   "integrity" "sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ=="
   "resolved" "https://registry.npmjs.org/@sindresorhus/is/-/is-0.14.0.tgz"
@@ -104,6 +111,11 @@
   "integrity" "sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-16.11.7.tgz"
   "version" "16.11.7"
+
+"@types/node@^17.0.4":
+  "integrity" "sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.5.tgz"
+  "version" "17.0.5"
 
 "@types/qs@*":
   "integrity" "sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw=="

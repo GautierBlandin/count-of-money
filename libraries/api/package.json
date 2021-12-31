@@ -1,6 +1,6 @@
 {
   "name": "@gautierblandin/comoney-api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "The api for front/back communicaton in the count of money project",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "Gautier Blandin",
   "license": "ISC",
   "dependencies": {
-    "@gautierblandin/types": "^1.0.2",
+    "@gautierblandin/types": "^1.0.5",
     "@types/node": "^17.0.5",
     "@types/qs": "^6.9.7",
     "axios": "^0.24.0",

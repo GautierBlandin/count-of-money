@@ -2,9 +2,31 @@ import express from 'express';
 import {CryptoController} from "../../controller/CryptoController";
 import {CryptoFetcher} from "../../CryptoExternalAPIs/CryptoDataFetcher/Fetcher";
 import {Period} from "../../CryptoExternalAPIs/cryptoExternalFetcher.interface";
-import {withAuth} from "../../libraries/express_middlewares";
+import { withAuth } from "../../libraries/express_middlewares";
+import { GetAllCryptosResponse } from "@gautierblandin/types";
 
 export const cryptoRouter = express.Router();
+
+/**
+ * Route used to get a list of all cryptocurrencies
+ */
+cryptoRouter.get('/cryptos/all', async (req, res) => {
+  // Fetch the list of all cryptocurrencies from the database
+  const controller = await CryptoController.getCryptoController()
+  let cryptos = await controller.getAllCryptos({})
+
+  let resData: GetAllCryptosResponse = {
+    cryptos: cryptos.map((currency) => { return {
+      name: currency.name,
+      symbol: currency.symbol,
+      imageURL: currency.imageURL,
+      id: currency.geckoID
+    }
+    })
+  }
+
+  res.json(resData)
+})
 
 /**
  * Route used to get a information about a specific cryptocurrency
