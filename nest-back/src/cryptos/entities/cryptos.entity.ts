@@ -1,5 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import {CryptoCurrencyInterface} from "./cryptos.interface";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { CryptoCurrencyInterface } from '../crypto-dal/cryptos.interface';
 
 /**
  * @class CryptoCurrency - A class to represent a CryptoCurrency in db
@@ -9,16 +9,16 @@ import {CryptoCurrencyInterface} from "./cryptos.interface";
  * @property geckoID - The coinGecko ID of the cryptocurrency, useful for qerying the CoinGecko API
  * @property imageURL - The Image URL of cryptocurrency's logo
  */
-@Entity("crypto_currency")
-export class CryptoCurrency implements CryptoCurrencyInterface{
-    @PrimaryGeneratedColumn("uuid")
-    uuid: string
-    @Column({unique: true})
-    name: string
-    @Column({unique: true})
-    symbol: string
-    @Column()
-    imageURL: string
-    @Column({unique: true})
-    geckoID: string
+@Entity('crypto_currency')
+export class CryptoCurrency implements CryptoCurrencyInterface {
+  @PrimaryGeneratedColumn('uuid')
+  uuid: string;
+  @Column({ unique: true })
+  name: string;
+  @Column({ unique: true })
+  symbol: string;
+  @Column()
+  imageURL: string;
+  @Column({ unique: true })
+  geckoID: string;
 }

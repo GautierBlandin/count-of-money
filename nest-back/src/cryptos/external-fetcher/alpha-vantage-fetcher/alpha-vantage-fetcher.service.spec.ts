@@ -9,7 +9,9 @@ describe('AlphaVantageFetcherService', () => {
       providers: [AlphaVantageFetcherService],
     }).compile();
 
-    service = module.get<AlphaVantageFetcherService>(AlphaVantageFetcherService);
+    service = module.get<AlphaVantageFetcherService>(
+      AlphaVantageFetcherService,
+    );
   });
 
   it('should be defined', () => {
