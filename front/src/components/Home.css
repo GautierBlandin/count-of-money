@@ -4,7 +4,7 @@
 
   height: 47vh;
   width: 75%;
-  display: inline-block;  
+  display: inline-block;
   position: relative;
 }
 
@@ -105,11 +105,6 @@ table {
   margin-top: 5%;
   padding-left: 5%;
 }
-
-
-
-
-
 
 .Bottom{
   position: absolute;

@@ -107,7 +107,9 @@ th{
 }
 
 
-
+.autocomplete{
+  min-width: 200px;
+}
 
 .custom-container{
   flex-direction: column;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import {
-  Button, Form, FormGroup, Label, Input, InputGroup, InputGroupText
+  Button, Form, FormGroup, Input, InputGroup, InputGroupText
 } from 'reactstrap';
 
 import './Login.css';
@@ -34,7 +34,7 @@ export default function Login() {
 
     const params = [
       ['response_type', 'code'],
-      ['client_id', process.env.GOOGLE_CLIENT_ID],
+      ['client_id', '67182165806-r0l3mf6fg61t65h7n6df8b8a5jee78g0.apps.googleusercontent.com'],
       ['state', 'abcd'],
       ['redirect_uri', 'http://localhost:3000/oauth-callback'],
       ['scope', 'email'],

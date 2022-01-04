@@ -1,5 +1,5 @@
 import { API } from "../config/config";
-import { AuthResponse } from "@gautierblandin/types"
+import {AuthResponse, TokenValidationResponse} from "@gautierblandin/types"
 
 export async function register(email: string, password: string):Promise<AuthResponse|undefined> {
     console.log(email, password);
@@ -24,6 +24,19 @@ export async function login(email: string, password: string):Promise<AuthRespons
 
     if(response) {
         return response.data as AuthResponse;
+    }
+    else return undefined;
+}
+
+export async function validateAccessToken(token: string):Promise<TokenValidationResponse|undefined> {
+    const response = await API.post('/users/auth/validate', {
+        token: token})
+        .catch(err => {
+        console.log(err);
+    });
+
+    if(response) {
+        return response.data as TokenValidationResponse;
     }
     else return undefined;
 }

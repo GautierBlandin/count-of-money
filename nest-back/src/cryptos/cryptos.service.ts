@@ -5,7 +5,7 @@ import {
   GetAllCryptosResponse,
   GetCryptoResponse,
   GetRealTimeDataResponse,
-  GetStaticCryptoResponse,
+  GetStaticCryptoResponse, MarketResponse,
 } from '@gautierblandin/types';
 import {
   DeleteCryptoCurrencyRequest,
@@ -44,6 +44,10 @@ export class CryptosService {
       imageURL: dal_response.imageURL,
       id: dal_response.geckoID,
     };
+  }
+
+  public async getMarket(): Promise<MarketResponse>{
+    return await this.cryptoExternal.getMarket();
   }
 
   public async getDynamicCrypto(

@@ -6,8 +6,9 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import dotenv from 'dotenv';
 
-
+dotenv.config()
 Config.initialize({baseUrl: 'http://localhost:8079'})
 
 ReactDOM.render(

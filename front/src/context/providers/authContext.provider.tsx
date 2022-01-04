@@ -1,30 +1,32 @@
 import {AuthContext} from "../auth.context";
 import React, {ComponentProps, useEffect, useState} from "react";
-import {Config} from "@gautierblandin/comoney-api"
+import {Config, AuthAPI} from "@gautierblandin/comoney-api"
 
 export default function AuthProvider({children} : ComponentProps<any>){
     const [email, setEmail] = useState<string>("");
     const [username, setUsername] = useState<string>("");
     const [authToken, setAuthToken] = useState<string>("");
 
+    // Fetch the token from localStorage and ask the api for validation
     useEffect(() => {
         const token = localStorage.getItem("authToken");
         if(token){
-            setAuthToken(token);
-            Config.set_authorization(token);
-        }
-    }, []);
-
-    useEffect(() => {
-        const email = localStorage.getItem("email");
-        if(email){
-            setEmail(email);
+            AuthAPI.validateAccessToken(token).then(res => {
+                if(res?.valid) {
+                    setEmail(res.email!);
+                    setAndStoreToken(res.token!);
+                } else {
+                    setAuthToken("");
+                    setEmail('');
+                    Config.set_authorization("");
+                }
+            })
         }
     }, []);
 
     const setAndStoreToken = (token: string) => {
-        setAuthToken(token);
         Config.set_authorization(token);
+        setAuthToken(token);
         localStorage.setItem("authToken", token);
     }
 

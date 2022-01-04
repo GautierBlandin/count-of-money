@@ -93,9 +93,9 @@ export class UsersService {
       );
     }
     userToUpdate.cryptos = user.cryptos ?? userToUpdate.cryptos;
-    userToUpdate.press_keywords =
-      user.press_keywords ?? userToUpdate.press_keywords;
+    userToUpdate.press_keywords = user.press_keywords ?? userToUpdate.press_keywords;
     userToUpdate.currency = user.currency ?? userToUpdate.currency;
+    console.log('userService userToUpdate', userToUpdate)
     return await this.repository.save(userToUpdate);
   }
 
@@ -109,6 +109,24 @@ export class UsersService {
     const user = await this.repository.findOne(email);
     user.press_keywords.push(keyword);
     return await this.repository.save(user);
+  }
+
+  async validateToken(token: string) {
+    const email = this.authUtils.decodeAccessToken(token);
+    const user = await this.repository.findOne(email);
+    if (user.access_token == token) {
+      return {
+        valid: true,
+        email: email,
+        token: token
+      }
+    } else {
+      return {
+        valid: false,
+        token: token,
+        email: undefined
+      }
+    }
   }
 
   async logout(email: string) {

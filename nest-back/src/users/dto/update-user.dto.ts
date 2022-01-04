@@ -1,7 +1,7 @@
 import { IsOptional } from 'class-validator';
 
 export class UpdateUserDto {
-  readonly email: string;
+  email: string;
   @IsOptional()
   readonly cryptos: string[];
   @IsOptional()

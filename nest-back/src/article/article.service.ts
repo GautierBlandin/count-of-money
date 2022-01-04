@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateArticleDto } from './dto/create-article.dto';
-import { UpdateArticleDto } from './dto/update-article.dto';
 import { Article } from './entities/article.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -16,7 +15,12 @@ export class ArticleService {
   }
 
   async findAll() {
-    return await this.repository.find();
+    return await this.repository.find({
+      order:{
+      date: 'DESC'
+      },
+      take: 15
+    });
   }
 
   async findOne(id: string) {

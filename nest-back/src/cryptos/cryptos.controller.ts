@@ -11,10 +11,11 @@ import {
 import { CryptosService } from './cryptos.service';
 import {
   GetAllCryptosResponse,
-  GetCryptoResponse,
+  GetCryptoResponse, GetCryptosResponse, MarketResponse,
 } from '@gautierblandin/types';
 import { RoleGuard } from '../common/guards/role.guard';
 import { Admin } from '../common/decorators/admin.decorator';
+import {GetRealTimeDataResponse} from "@gautierblandin/types/dist/Crypto.interface";
 
 @Controller('cryptos')
 export class CryptosController {
@@ -25,6 +26,11 @@ export class CryptosController {
     return await this.cryptosService.getAllStaticCryptos();
   }
 
+  @Get('market')
+  getMarket(): Promise<MarketResponse> {
+    return this.cryptosService.getMarket();
+  }
+
   @Get(':symbol')
   @UseGuards(RoleGuard)
   async findOne(@Param('symbol') symbol: string): Promise<GetCryptoResponse> {
@@ -33,13 +39,15 @@ export class CryptosController {
 
   @Get()
   async findSeveral(
-    @Query('cmids') query: string[],
-  ): Promise<GetCryptoResponse[]> {
-    return Promise.all(
-      query.map((symbol) =>
-        this.cryptosService.getDynamicCrypto({ symbol: symbol }),
-      ),
-    );
+    @Query() query,
+  ): Promise<GetCryptosResponse> {
+    return {
+      cryptos: await Promise.all(
+      query.cmids.map((symbol) => {
+        return this.cryptosService.getDynamicCrypto({ symbol: symbol })
+      }),
+    )
+    }
   }
 
   @Get('/:symbol/history/:period')
@@ -47,7 +55,7 @@ export class CryptosController {
   async findHistory(
     @Param('symbol') symbol: string,
     @Param('period') period: string,
-  ) {
+  ): Promise<GetRealTimeDataResponse>  {
     return await this.cryptosService.getCryptoHistory({
       symbol: symbol,
       period: period,

@@ -8,6 +8,7 @@ import {
 } from '../crypto-external-fetcher.interface';
 import { AlphaVantageFetcherService } from '../alpha-vantage-fetcher/alpha-vantage-fetcher.service';
 import { GeckoFetcherService } from '../gecko-fetcher/gecko-fetcher.service';
+import {MarketResponse} from "@gautierblandin/types";
 
 @Injectable()
 export class ExternalFetcherService implements CryptoExternalFetcher {
@@ -43,5 +44,9 @@ export class ExternalFetcherService implements CryptoExternalFetcher {
       period: req.period,
       symbol: req.symbol,
     });
+  }
+
+  async getMarket(): Promise<MarketResponse> {
+    return this.geckoFetcherService.getMarket();
   }
 }

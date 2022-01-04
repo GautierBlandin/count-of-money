@@ -15,7 +15,6 @@ import {
 } from 'reactstrap';
 
 import './Navigation.css';
-import Login from '../components/Login'
 import {AuthContext} from "../context/auth.context";
 
 const Navigation = () => {

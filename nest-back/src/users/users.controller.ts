@@ -11,17 +11,24 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { RegisterUserDto } from './dto/register-user.dto';
-import { Request } from 'express';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { LoginUserDto } from './dto/login-user-dto';
-import { AuthResponse, ProfileResponse } from '@gautierblandin/types';
+import { AuthResponse,
+  ProfileResponse,
+    TokenValidationResponse
+} from '@gautierblandin/types';
 import { ExtendedRequest } from '../common/types/request';
 import { RoleGuard } from '../common/guards/role.guard';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
+
+  @Post('/auth/validate')
+  async validateToken(@Body('token') token: string): Promise<TokenValidationResponse> {
+    return await this.usersService.validateToken(token);
+  }
 
   @Get('/auth/:provider')
   async getUserByOAuth(
@@ -83,7 +90,8 @@ export class UsersController {
     @Req() request: ExtendedRequest,
     @Body() updateUserDto: UpdateUserDto,
   ) {
-    console.log(updateUserDto);
+    console.log('updateUserDTO', updateUserDto);
+    updateUserDto.email = request.user.email;
     await this.usersService.updateUser(updateUserDto);
     return 'User updated';
   }

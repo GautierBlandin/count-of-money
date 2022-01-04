@@ -1,6 +1,6 @@
 {
   "name": "@gautierblandin/types",
-  "version": "1.0.6",
+  "version": "1.0.12",
   "description": "API Types for the count of money project",
   "main": "dist/index.js",
   "scripts": {
